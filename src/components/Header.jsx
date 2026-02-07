@@ -1,44 +1,104 @@
-// components/Header.js
-import React, { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import '../styles/Header.css';
+
+const NAV_ITEMS = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
 
-  const scrollToSection = (sectionId) => {
+      const sections = NAV_ITEMS.map(item => ({
+        id: item.id,
+        el: document.getElementById(item.id),
+      }));
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section.el) {
+          const rect = section.el.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
-  };
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="logo">
-          <span>MS</span>
-        </div>
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-          <ul>
-            <li><button onClick={() => scrollToSection('home')}>Home</button></li>
-            <li><button onClick={() => scrollToSection('about')}>About</button></li>
-            <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
-            <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
-            <li><button onClick={() => scrollToSection('projects')}>Projects</button></li>
-            <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+    <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+      <div className="header__container">
+        <button
+          className="header__logo"
+          onClick={() => scrollToSection('home')}
+          aria-label="Go to top"
+        >
+          <span className="header__logo-text">MS</span>
+          <span className="header__logo-dot"></span>
+        </button>
+
+        <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
+          <ul className="header__nav-list">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.id} className="header__nav-item">
+                <button
+                  className={`header__nav-link ${activeSection === item.id ? 'header__nav-link--active' : ''}`}
+                  onClick={() => scrollToSection(item.id)}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="header__nav-indicator" />
+                  )}
+                </button>
+              </li>
+            ))}
           </ul>
         </nav>
-        <button className="menu-toggle" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
+
+        <button
+          className={`header__toggle ${isMenuOpen ? 'header__toggle--active' : ''}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
         </button>
       </div>
+
+      {/* Mobile overlay */}
+      {isMenuOpen && (
+        <div className="header__overlay" onClick={() => setIsMenuOpen(false)} />
+      )}
     </header>
   );
 };

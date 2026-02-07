@@ -1,79 +1,167 @@
-/* styles/About.css */
-.about {
-  padding: 6rem 0;
-  background-color: white;
-}
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #2d3748;
+.about {
+  padding: var(--section-padding);
   position: relative;
 }
 
-.section-title::after {
+.about::before {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 2px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 }
 
-.about-content {
+.about__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about__header .section-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+/* Stats Grid */
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.about__stat-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.about__stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-card);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.about__stat-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.about__stat-card:hover::before {
+  opacity: 1;
+}
+
+.about__stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-primary-light);
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about__stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about__stat-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* Highlights */
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.about-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #4a5568;
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.about-stats {
+.about__highlight {
   display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 3rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-base);
 }
 
-.stat {
-  text-align: center;
+.about__highlight:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
 }
 
-.stat-number {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #667eea;
-  margin-bottom: 0.5rem;
+.about__highlight-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
 }
 
-.stat-label {
-  font-size: 1rem;
-  color: #718096;
-}
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 
 @media (max-width: 768px) {
-  .about-stats {
-    gap: 1.5rem;
+  .about__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
-  .stat-number {
+  .about__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .about__stat-number {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 576px) {
-  .about-stats {
-    flex-direction: column;
-    gap: 2rem;
+@media (max-width: 480px) {
+  .about__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about__stat-card {
+    padding: 1.5rem 1rem;
   }
 }

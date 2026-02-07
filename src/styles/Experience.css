@@ -1,119 +1,184 @@
-/* styles/Experience.css */
+/* ========================================
+   EXPERIENCE SECTION
+   ======================================== */
+
 .experience {
-  padding: 6rem 0;
-  background-color: white;
-}
-
-.timeline {
+  padding: var(--section-padding);
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 0;
 }
 
-.timeline::before {
+.experience::before {
   content: '';
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, #667eea, #764ba2);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  width: 50%;
-  padding: 0 2rem;
-}
-
-.timeline-item:nth-child(odd) {
-  left: 0;
-  padding-right: 3rem;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-  padding-left: 3rem;
-}
-
-.timeline-marker {
-  position: absolute;
   top: 0;
-  width: 20px;
-  height: 20px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.experience__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience__timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.experience__item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.experience__item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Marker */
+.experience__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.experience__marker-dot {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 6px var(--color-bg-primary), 0 0 20px rgba(99, 102, 241, 0.15);
 }
 
-.timeline-item:nth-child(odd) .timeline-marker {
-  right: -10px;
+.experience__marker-line {
+  width: 2px;
+  flex-grow: 1;
+  background: linear-gradient(180deg, var(--color-primary), transparent);
+  opacity: 0.3;
+  margin-top: 0.5rem;
 }
 
-.timeline-item:nth-child(even) .timeline-marker {
-  left: -10px;
+/* Card */
+.experience__card {
+  flex: 1;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: all var(--transition-base);
 }
 
-.timeline-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.experience__card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateX(4px);
 }
 
-.timeline-content:hover {
-  transform: translateY(-3px);
+.experience__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-.timeline-title {
-  font-size: 1.3rem;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
+.experience__position {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
 }
 
-.timeline-company {
-  font-size: 1.1rem;
-  color: #667eea;
-  margin-bottom: 0.5rem;
+.experience__company {
+  font-size: 1rem;
+  color: var(--color-primary-light);
   font-weight: 600;
 }
 
-.timeline-period {
-  display: inline-block;
-  background: #e9d8fd;
-  color: #6b46c1;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+.experience__duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
-  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  background: rgba(148, 163, 184, 0.08);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.timeline-description {
-  list-style-type: disc;
-  padding-left: 1.2rem;
-  color: #4a5568;
+/* Responsibilities */
+.experience__responsibilities {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.timeline-description li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
+.experience__responsibility {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
+
+.experience__bullet {
+  color: var(--color-primary-light);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 20px;
+  .experience__card-top {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .timeline-item {
-    width: 100%;
-    left: 0 !important;
-    padding: 0 0 0 3rem !important;
+  .experience__item {
+    gap: 1.25rem;
   }
 
-  .timeline-marker {
-    left: 10px !important;
-    right: auto !important;
+  .experience__marker-dot {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .experience__card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience__marker {
+    display: none;
+  }
+
+  .experience__card {
+    border-left: 3px solid var(--color-primary);
   }
 }

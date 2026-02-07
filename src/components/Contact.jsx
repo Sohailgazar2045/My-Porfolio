@@ -1,95 +1,213 @@
-// components/Contact.js
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  HiMail,
+  HiPhone,
+  HiLocationMarker,
+  HiPaperAirplane,
+} from 'react-icons/hi';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import data from '../data.json';
 import '../styles/Contact.css';
 
 const Contact = () => {
-  const { email, phone, linkedin, github } = data.personalInfo;
+  const { email, phone, location, linkedin, github } = data.personalInfo;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    alert('Message sent! (This is a demo)');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setTimeout(() => {
+      alert('Message sent! (This is a demo)');
+      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  const contactInfo = [
+    { icon: <HiMail />, label: 'Email', value: email, href: `mailto:${email}` },
+    { icon: <HiPhone />, label: 'Phone', value: phone, href: `tel:${phone}` },
+    { icon: <HiLocationMarker />, label: 'Location', value: location || 'Multan, Pakistan', href: null },
+  ];
+
+  const socialLinks = [
+    { icon: <FaGithub size={20} />, href: github, label: 'GitHub' },
+    { icon: <FaLinkedinIn size={20} />, href: linkedin, label: 'LinkedIn' },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
   };
 
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
-        <div className="contact-content">
-          <div className="contact-info">
-            <h3>Let's talk about your project</h3>
-            <p>I'm available for freelance work and new opportunities.</p>
-            <div className="contact-details">
-              <div className="contact-item">
-                <strong>Email:</strong>
-                <a href={`mailto:${email}`}>{email}</a>
-              </div>
-              <div className="contact-item">
-                <strong>Phone:</strong>
-                <a href={`tel:${phone}`}>{phone}</a>
-              </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5 }}
+          className="contact__header"
+        >
+          <span className="section-label">Contact</span>
+          <h2 className="section-title">Let's Work Together</h2>
+          <p className="section-subtitle">
+            Have a project in mind? I'd love to hear about it. Let's build something great.
+          </p>
+        </motion.div>
+
+        <div className="contact__grid">
+          {/* Info Side */}
+          <motion.div
+            className="contact__info"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+          >
+            <motion.div className="contact__info-intro" variants={itemVariants}>
+              <h3>Get in touch</h3>
+              <p>
+                I'm always open to discussing new projects, creative ideas,
+                or opportunities to be part of your vision.
+              </p>
+            </motion.div>
+
+            <div className="contact__info-list">
+              {contactInfo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="contact__info-item"
+                  variants={itemVariants}
+                >
+                  <div className="contact__info-icon">{item.icon}</div>
+                  <div className="contact__info-text">
+                    <span className="contact__info-label">{item.label}</span>
+                    {item.href ? (
+                      <a href={item.href} className="contact__info-value">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span className="contact__info-value">{item.value}</span>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="social-links">
-              <a href={linkedin} className="social-link">
-                LinkedIn
-              </a>
-              <a href={github} className="social-link">
-                GitHub
-              </a>
-            </div>
-          </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
+
+            <motion.div className="contact__socials" variants={itemVariants}>
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact__social-link"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Form Side */}
+          <motion.form
+            className="contact__form"
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="contact__form-group">
+              <label htmlFor="name" className="contact__label">
+                Full Name
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
+                className="contact__input"
+                placeholder="John Doe"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
+
+            <div className="contact__form-group">
+              <label htmlFor="email" className="contact__label">
+                Email Address
+              </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                className="contact__input"
+                placeholder="john@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
+
+            <div className="contact__form-group">
+              <label htmlFor="message" className="contact__label">
+                Your Message
+              </label>
               <textarea
                 id="message"
                 name="message"
+                className="contact__input contact__textarea"
+                placeholder="Tell me about your project..."
                 rows="5"
                 value={formData.message}
                 onChange={handleChange}
                 required
-              ></textarea>
+              />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Send Message
+
+            <button
+              type="submit"
+              className="btn btn-primary contact__submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                'Sending...'
+              ) : (
+                <>
+                  Send Message
+                  <HiPaperAirplane className="btn-icon" />
+                </>
+              )}
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
