@@ -1,0 +1,162 @@
+{
+  "personalInfo": {
+    "name": "Muhammad Sohail",
+    "title": "Full Stack Developer",
+    "email": "sohailgazar2045@gmail.com",
+    "phone": "+923002045042",
+    "location": "Multan, Pakistan",
+    "linkedin": "https://www.linkedin.com/in/muhammad-sohail-1b07081bb",
+    "github": "https://github.com/Sohailgazar2045",
+    "profileImage": "/sohail-removebg-preview.png",
+    "resumeUrl": "/sohail-resume.pdf"
+  },
+  "summary": "Full Stack Web Developer with over 3 years of experience in developing software products, specializing in both front-end and back-end development. Highly proficient in JavaScript, and experienced in building scalable, optimized, and maintainable software. Skilled in working both independently and collaboratively, with a focus on writing clean, efficient, and reusable code.",
+  "skills": {
+    "frontend": ["React", "Next.js", "Redux Toolkit", "React Hook Form", "PrimeReact", "Context API", "Tailwind CSS", "Chart.js", "Redux Thunk", "React Query", "Vue.js", "Angular.js"],
+    "backend": ["Node.js", "Express.js", "Nest.js", "LoopBack 4", "GraphQL", "Passport.js", "Twilio", "Auth2.0", "SOS"],
+    "databases": ["MongoDB", "MySQL", "SQL Server", "PostgreSQL", "Sequelize ORM", "Prisma ORM", "TypeORM"],
+    "other": ["JavaScript ES6+", "Typescript", "Mongoose", "Web Scraping (Puppeteer)", "Socket.io"],
+    "apis": ["Firebase", "Slack API", "Weather API", "Stripe API", "Cloudflare", "BrainTree API", "Currency API"],
+    "tools": ["VSCode", "Postman", "Docker", "Nginx", "GitHub", "Git", "SSL/TLS", "AWS (RDS, EC2, S3 Buckets)"]
+  },
+  "experience": [
+    {
+      "position": "Full Stack Developer",
+      "company": "Atrule Technologies",
+      "duration": "Feb 2022 - Present",
+      "responsibilities": [
+        "Led projects and worked on end-to-end development using technologies such as React, Next.js, Node.js, Nest.js, GraphQL, Typescript, Prisma ORM, and Sequelize.",
+        "Developed both frontend and backend components, working on data integration and API development with Clerk, Passport.js, and Firebase Authentication.",
+        "Built responsive, user-friendly applications using PrimeReact, Formik, Tailwind CSS, and Redux Toolkit.",
+        "Refactored existing designs and ensured code reusability and maintainability."
+      ]
+    },
+    {
+      "position": "Associate MERN Stack Developer",
+      "company": "Pukat Digital",
+      "duration": "Sep 2021 - Jan 2022",
+      "responsibilities": [
+        "Implemented new features and fixed bugs on both the front-end and back-end of various projects.",
+        "Developed APIs using Node.js, Express.js, and MongoDB, and collaborated with front-end developers to integrate UI elements.",
+        "Worked within an Agile scrum environment and used Git for version control.",
+        "Scraped data from social media and other websites for integration into applications."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Customer Order Pickup Dashboard for WynShop",
+      "description": "Developed a comprehensive dashboard for WynShop (now owned by Instacart), an eCommerce platform providing services to large stores in the USA, enabling store managers and staff to efficiently handle customer orders.",
+      "technologies": ["React PWA", "Redux Toolkit", "Redux Thunk", "Next.js", "Node.js", "GraphQL", "Twilio", "MongoDB"],
+      "achievements": [
+        "Integrated real-time order notifications and barcode scanner to verify age by USA driving licence",
+        "Implemented order tracking to ensure smooth fulfillment and customer satisfaction",
+        "Integrated Twilio for SMS and email notifications to keep customers and store staff updated",
+        "Data management handled using MongoDB for scalability and performance"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "QualityShopMarketplace",
+      "description": "Developed the front end for a DTC platform focused on healthy food and drink brands.",
+      "technologies": ["Next.js", "Redux Toolkit", "Tailwind CSS", "OpenAI API", "REST APIs"],
+      "achievements": [
+        "Integrated APIs developed in .NET Core to display business data and product listings",
+        "Used OpenAI API on the front end to detect and classify health-conscious products",
+        "Built clean, responsive UI components using Next.js and Tailwind CSS",
+        "Collaborated with backend and data teams to ensure smooth flow of filtered data from 2.5M+ Shopify stores"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Contract Management System by Blitzy",
+      "description": "Worked on the front end of an AI-powered contract management system to improve stability and user experience.",
+      "technologies": ["Vue.js", "Quasar framework", "Pinia", "Tailwind CSS", "REST APIs"],
+      "achievements": [
+        "Collaborated with the team to debug and fix major UI and configuration issues affecting usability",
+        "Re-engineered front-end components using Vue.js, Pinia and Quasar to align with updated backend logic",
+        "Ensured smooth integration with .NET-based APIs and improved responsiveness across devices",
+        "Contributed to overall performance optimization and UI consistency in a complex enterprise environment"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "E-Commerce Website with Next.js, Nest.js, and MySQL",
+      "description": "Built a full-featured e-commerce website using Next.js for the frontend, Nest.js for the backend, and MySQL as the database.",
+      "technologies": ["Next.js", "Nest.js", "GraphQL", "Redux Toolkit", "Tailwind CSS", "Sequelize ORM", "MySQL"],
+      "achievements": [
+        "Implemented efficient state management using Redux Toolkit to manage user data, cart information, and product details",
+        "Integrated GraphQL for streamlined and optimized data fetching between the frontend and backend",
+        "Designed and developed the frontend with a modern and responsive user interface powered by Tailwind CSS",
+        "Utilized Sequelize ORM for MySQL database interaction, ensuring smooth data handling and optimization",
+        "Implemented user authentication, order management, and payment systems"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Company Portfolio Website",
+      "description": "Designed and developed a company portfolio website to showcase the company's expertise, services, team, and projects.",
+      "technologies": ["Node.js", "Express.js", "Next.js", "React Hook Form", "SQL Server", "TypeORM", "Passport.js", "Redux"],
+      "achievements": [
+        "Built the frontend using Next.js to ensure SEO optimization and fast page loading times",
+        "Integrated TypeORM with SQL Server for backend data handling and dynamic content management",
+        "Implemented user authentication with Passport.js and secured APIs for seamless access to portfolio data",
+        "Used React Hook Form for form management, allowing potential clients to request more information",
+        "Made the website fully responsive with Tailwind CSS, ensuring smooth user experience across all devices"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Pakistan Petrol Price Mobile App - Backend API",
+      "description": "Developed the backend API for the Pakistan Petrol Price mobile application, which has garnered over 300K downloads.",
+      "technologies": ["LoopBack 4", "Node.js", "TypeScript", "Puppeteer", "Google Maps API", "Authentication"],
+      "achievements": [
+        "Used LoopBack 4 to create a secure and scalable API that serves real-time petrol price data to mobile clients",
+        "Integrated Puppeteer for scraping data on petrol prices from external sources for up-to-date information",
+        "Incorporated Google Maps API to help users find nearby petrol stations and calculate fuel efficiency",
+        "Added user authentication for data security and personalized features like trip tracking and service reminders"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Pakistani Brands Mobile App Backend",
+      "description": "Built the backend for the Pakistani Brands Mobile App, which aggregates data from 50+ top Pakistani apparel websites.",
+      "technologies": ["LoopBack 4", "Node.js", "TypeScript", "Puppeteer", "SQL Server", "OneSignal API"],
+      "achievements": [
+        "Used Puppeteer for web scraping to extract product details from various brand websites",
+        "Integrated OneSignal to send push notifications to users about sales and new products",
+        "Stored and managed data in SQL Server using Sequelize ORM for smooth data retrieval",
+        "Built a secure API with LoopBack 4 and TypeScript for managing user interactions and product listings"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Currency Converter App Backend",
+      "description": "Developed the backend for a Currency Converter App, supporting real-time currency conversion for 20 countries.",
+      "technologies": ["Node.js", "Express.js", "MongoDB", "OneSignal API", "Passport.js"],
+      "achievements": [
+        "Integrated with external APIs to fetch live exchange rates of top currencies",
+        "Added daily updates for gold prices in major Pakistani cities for comprehensive financial data",
+        "Used Express.js to build RESTful APIs for currency conversion",
+        "Implemented OneSignal for sending push notifications about currency and gold price updates",
+        "Implemented secure user authentication with Passport.js for personalized services"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Information Technology",
+      "institution": "BZU, Multan",
+      "duration": "2015 - 2019"
+    }
+  ]
+}
