@@ -1,20 +1,8 @@
 /* ========================================
-   EDUCATION SECTION
+   EDUCATION — Premium
    ======================================== */
-
 .education {
   padding: var(--section-padding);
-  position: relative;
-}
-
-.education::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
 }
 
 .education__header {
@@ -34,40 +22,9 @@
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
   padding: 2rem;
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.education__card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.education__card:hover {
-  border-color: var(--color-border-hover);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
-}
-
-.education__card:hover::before {
-  opacity: 1;
 }
 
 .education__card-icon {
@@ -76,20 +33,19 @@
   justify-content: center;
   width: 52px;
   height: 52px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   color: var(--color-primary-light);
   font-size: 1.5rem;
   flex-shrink: 0;
 }
 
-.education__card-content {
-  flex: 1;
-}
+.education__card-content { flex: 1; }
 
 .education__degree {
   font-family: var(--font-display);
-  font-size: 1.1875rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.75rem;
@@ -118,29 +74,10 @@
   font-size: 0.95rem;
 }
 
-.education__decoration {
-  display: none;
-}
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+.education__decoration { display: none; }
 
 @media (max-width: 640px) {
-  .education__card {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-
-  .education__card-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 1.2rem;
-  }
-
-  .education__meta {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  .education__card { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+  .education__card-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+  .education__meta { flex-direction: column; gap: 0.5rem; }
 }

@@ -400,5 +400,219 @@
       "institution": "BZU, Multan",
       "duration": "2015 - 2019"
     }
-  ]
+  ],
+  "blogs": [
+    {
+      "slug": "nestjs-postgres-prisma-production",
+      "featured": true,
+      "category": "Backend Architecture",
+      "title": "Production-Grade APIs with NestJS, PostgreSQL & Prisma",
+      "readMinutes": 9,
+      "excerpt": "How I structure modules, migrations, and transactional boundaries when shipping SaaS backends that need predictable behavior under load.",
+      "tags": ["Nest.js", "PostgreSQL", "Prisma ORM", "TypeScript"],
+      "takeaways": [
+        "Domain-oriented modules beat “technical layer” folders when products evolve weekly",
+        "Treat Prisma migrations as the contract between services and BI tooling",
+        "Model side-effects (webhooks, queues) as explicit steps out of the request path"
+      ],
+      "paragraphs": [
+        "When you are shipping billing, alerts, and automation in one codebase, the dominant risk is not peak RPS—it is ambiguity about who owns a workflow. I start by naming bounded contexts (subscriptions, messaging, integrations) and keep providers thin so tests stay honest.",
+                "PostgreSQL gives you the constraints you need for money-moving paths; Prisma makes the schema legible to the whole team. I default to explicit transactions for anything that touches balances, tiers, or ledger-like tables, and I document failure modes beside the use-case—not in a wiki nobody opens.",
+                "The “premium” feel for API consumers is consistency: predictable error shapes, idempotent handlers, and observability that answers why a webhook retry happened. That trio costs little upfront and pays for itself the first night you debug production."
+      ]
+    },
+    {
+      "slug": "nextjs-react-performance-patterns",
+      "featured": false,
+      "category": "Frontend Craft",
+      "title": "Next.js & React Patterns for Interfaces That Feel Instant",
+      "readMinutes": 7,
+      "excerpt": "Streaming, server-first data, and client islands—how I keep dashboards and marketing surfaces fast without sacrificing interactivity.",
+      "tags": ["Next.js", "React", "Tailwind CSS", "React Query"],
+      "takeaways": [
+        "Fetch on the server when the UI is mostly read-only; hydrate only the interactive islands",
+        "Co-locate loading and error UI so perceived performance wins even when networks wobble",
+        "Let React Query own cache policy for anything that mutates in real time"
+      ],
+      "paragraphs": [
+        "Users judge quality in milliseconds. I reach for App Router layouts when the page shell is stable but the inner widgets need motion, forms, or charts—Framer Motion and React Flow stay on the client while the document frame stays lean.",
+                "Tailwind is not just styling speed; it is a shared vocabulary with design. Pair it with small component primitives (inputs, tables, dialogs) and you avoid the “custom CSS sprawl” that makes premium products feel cheap over time.",
+                "The finishing touches—focus rings, reduced-motion respect, and intentional empty states—are what separate a demo from a product people trust."
+      ]
+    },
+    {
+      "slug": "websockets-redis-realtime",
+      "featured": false,
+      "category": "Real-Time Systems",
+      "title": "WebSockets, Redis & Backpressure in Live Dashboards",
+      "readMinutes": 8,
+      "excerpt": "Patterns for persona status, bot telemetry, and trading-adjacent UIs where stale data is worse than no data.",
+      "tags": ["WebSocket", "Redis", "Node.js", "Winston"],
+      "takeaways": [
+        "Separate transport (socket) from domain events so you can swap brokers later",
+        "Use Redis as a fast source of truth for presence, not as your primary ledger",
+        "Log structured cycles—your future self is debugging at 2am, not admiring architecture diagrams"
+      ],
+      "paragraphs": [
+        "Live interfaces need a story for fan-out: who listens, what they are allowed to see, and how you degrade when a client falls behind. I like Redis-backed presence for short-lived flags and a clear TTL story.",
+                "Backpressure is the hidden premium feature. If you push firehoses to browsers, you will thrash layouts and batteries. Batch, throttle, and surface “catching up” states with the same care as loading spinners.",
+                "Pair operational logs (Winston) with user-visible timelines so support and engineering share one narrative when something misbehaves."
+      ]
+    },
+    {
+      "slug": "stripe-webhooks-idempotency",
+      "featured": false,
+      "category": "Payments & Integrations",
+      "title": "Stripe Webhooks, Idempotency Keys & Safe Subscription Flows",
+      "readMinutes": 6,
+      "excerpt": "Lessons from SMS-based acquisition flows—making payments feel boring in the best way.",
+      "tags": ["Stripe API", "Next.js", "TypeScript", "Webhooks"],
+      "takeaways": [
+        "Treat every webhook as at-least-once delivery—keys and deduplication tables are non-negotiable",
+        "Persist Stripe customer ↔ user mapping early; retro-matching is painful",
+        "Test failure replay as aggressively as happy paths"
+      ],
+      "paragraphs": [
+        "Payments are trust interfaces. A premium checkout is not flashy animation—it is correct receipts, predictable proration behavior, and support teams that can explain state in one glance.",
+                "I store webhook envelopes with status, attempt counts, and correlation IDs. Debugging becomes reading a story instead of guessing race conditions.",
+                "When SMS or messaging is in the loop, time ordering gets weird. Idempotency and explicit state machines for keywords like STOP/LOVE/UNSUB keep you compliant and calm."
+      ]
+    },
+    {
+      "slug": "graphql-integration-prisma",
+      "featured": false,
+      "category": "API Design",
+      "title": "GraphQL in the Wild with Prisma, NestJS & Product Dashboards",
+      "readMinutes": 7,
+      "excerpt": "When GraphQL wins, how I avoid N+1 nightmares, and where I still default to REST.",
+      "tags": ["GraphQL", "Nest.js", "Prisma ORM", "React"],
+      "takeaways": [
+        "Batch loaders belong in the architecture from day one—not static import({}) tricks",
+        "Model errors so mobile and web clients can branch without string matching",
+        "Reach for REST for binaries, caching-unfriendly payloads, and third-party callbacks"
+      ],
+      "paragraphs": [
+        "GraphQL shines when product teams iterate on screens faster than endpoints can multiply. The cost is discipline: schemas, permissions, and performance budgets must be first-class.",
+                "Prisma’s query planner is good, but GraphQL resolvers can still amplify chatter. DataLoader-style batching is the difference between slick UX and mysteriously slow grids.",
+                "Premium API surfaces expose introspection thoughtfully in dev, harden in prod, and document the “why” next to every expensive field."
+      ]
+    },
+    {
+      "slug": "docker-pm2-node-deployments",
+      "featured": false,
+      "category": "Platform & Reliability",
+      "title": "Docker, PM2 & Practical Node Deployments That Stay Boring",
+      "readMinutes": 6,
+      "excerpt": "Checklists for bots, workers, and APIs—where immutability meets operational comfort.",
+      "tags": ["Docker", "PM2", "Node.js", "Nginx"],
+      "takeaways": [
+        "One artifact per release—configure via env, not secret commits",
+        "Health checks should validate dependencies, not just `200 OK` on `/`",
+        "Use PM2 or orchestrators for restart policy; hope is not a supervision strategy"
+      ],
+      "paragraphs": [
+        "Shipping trading-adjacent or messaging-heavy services means processes will crash, deploys will overlap, and disks will fill. Container images plus explicit process managers turn chaos into playbooks.",
+                "Nginx fronts TLS and static egress concerns; Node focuses on business logic. Premium operations means rotations, logging sinks, and dashboards that show saturation before users notice.",
+                "The goal is unexciting on-call: predictable rollbacks, obvious config diffs, and alerts that fire on symptoms—not ego metrics."
+      ]
+    }
+  ],
+  "learningHub": {
+    "headline": "Learning space",
+    "subhead": "Curated tracks grounded in the same stack I ship with—full-stack TypeScript, resilient APIs, realtime dashboards, and cloud-native delivery.",
+    "tracks": [
+      {
+        "id": "product-fullstack",
+        "title": "Product-grade full-stack",
+        "summary": "End-to-end delivery from Next.js surfaces to NestJS services and PostgreSQL.",
+        "accent": "#818cf8",
+        "steps": [
+          {
+            "title": "Type-safe contracts first",
+            "detail": "Align Zod/DTO layers with OpenAPI or generated clients so your UI and API evolve together.",
+            "skills": ["Typescript", "React", "Nest.js"]
+          },
+          {
+            "title": "Auth as a product feature",
+            "detail": "Map sessions, OAuth2 flows, and webhook identities to explicit user states—not implicit flags.",
+            "skills": ["Passport.js", "Auth2.0", "Firebase"]
+          },
+          {
+            "title": "Ship vertical slices",
+            "detail": "Prefer user stories that touch UI, API, and persistence over horizontal “frontend week” milestones.",
+            "skills": ["Next.js", "GraphQL", "Prisma ORM"]
+          }
+        ]
+      },
+      {
+        "id": "frontend-excellence",
+        "title": "Frontend excellence",
+        "summary": "Interfaces that feel premium: motion, accessibility, and data discipline.",
+        "accent": "#c084fc",
+        "steps": [
+          {
+            "title": "Design systems in Tailwind",
+            "detail": "Tokens, spacing rhythm, and component recipes keep React trees consistent at scale.",
+            "skills": ["Tailwind CSS", "React", "Framer Motion"]
+          },
+          {
+            "title": "State with intent",
+            "detail": "Redux Toolkit for app-wide workflows; React Query for remote cache; Context for scoped toggles only.",
+            "skills": ["Redux Toolkit", "React Query", "Context API"]
+          },
+          {
+            "title": "Complex viz without jank",
+            "detail": "Isolate charts and graphs (Chart.js, React Flow) behind memoized shells with stable data snapshots.",
+            "skills": ["Chart.js", "React Flow", "PrimeReact"]
+          }
+        ]
+      },
+      {
+        "id": "backend-platform",
+        "title": "Backend & platform",
+        "summary": "Messaging, integrations, and observability for serious traffic.",
+        "accent": "#22d3ee",
+        "steps": [
+          {
+            "title": "Integrations that recover",
+            "detail": "Twilio, Stripe, and MessageBird demand retries, idempotency, and dead-letter clarity.",
+            "skills": ["Twilio", "Stripe API", "MessageBird"]
+          },
+          {
+            "title": "Postgres as the system of record",
+            "detail": "Use constraints and migrations boldly; let caches (Redis) be accelerators—not sources of truth.",
+            "skills": ["PostgreSQL", "Redis", "Sequelize ORM"]
+          },
+          {
+            "title": "Serverless glue with guardrails",
+            "detail": "Google Cloud Functions for focused jobs; keep shared libraries versioned and tested locally first.",
+            "skills": ["Google Cloud Functions", "Docker", "Winston"]
+          }
+        ]
+      },
+      {
+        "id": "ai-automation",
+        "title": "AI-assisted automation",
+        "summary": "When to blend Azure OpenAI, Microsoft Graph, and FastAPI for operational wins.",
+        "accent": "#34d399",
+        "steps": [
+          {
+            "title": "Inbox-to-action pipelines",
+            "detail": "Graph API ingestion, attachment routing, and human-in-the-loop review for regulated content.",
+            "skills": ["Microsoft Graph API", "Azure OpenAI", "FastAPI"]
+          },
+          {
+            "title": "Confidence-aware matching",
+            "detail": "Layer exact, fuzzy, and model-based strategies with explicit thresholds and audit trails.",
+            "skills": ["Python", "SQL Server", "PDF.js"]
+          },
+          {
+            "title": "Operational UX for agents",
+            "detail": "Admin panels with history, rollback, and settings snapshots keep AI features maintainable.",
+            "skills": ["FastAPI", "Nest.js", "React"]
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -18,6 +18,8 @@ const Footer = () => {
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Insights', href: '#insights' },
+    { label: 'Learn', href: '#learn' },
     { label: 'Contact', href: '#contact' },
   ];
 

@@ -64,7 +64,7 @@ const Projects = () => {
             return (
               <motion.div
                 key={index}
-                className="projects__card"
+                className="projects__card glow-card"
                 variants={cardVariants}
                 style={{
                   '--accent-from': accent.from,

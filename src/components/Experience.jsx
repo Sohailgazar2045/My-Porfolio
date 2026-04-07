@@ -64,7 +64,7 @@ const Experience = () => {
                 )}
               </div>
 
-              <div className="experience__card">
+              <div className="experience__card glow-card">
                 <div className="experience__card-top">
                   <div>
                     <h3 className="experience__position">{exp.position}</h3>

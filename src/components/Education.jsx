@@ -27,7 +27,7 @@ const Education = () => {
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              className="education__card"
+              className="education__card glow-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}

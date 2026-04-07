@@ -68,10 +68,11 @@ const Skills = () => {
             return (
               <motion.div
                 key={category}
-                className="skills__card"
+                className="skills__card glow-card"
                 variants={cardVariants}
                 style={{ '--accent': meta.color }}
               >
+                <div className="skills__card-glow" />
                 <div className="skills__card-header">
                   <div className="skills__card-icon">
                     {meta.icon}

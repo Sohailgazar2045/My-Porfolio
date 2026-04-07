@@ -89,7 +89,7 @@ const About = () => {
           viewport={{ once: true, margin: '-100px' }}
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} className="about__stat-card" variants={itemVariants}>
+            <motion.div key={index} className="about__stat-card glow-card" variants={itemVariants}>
               <div className="about__stat-icon">{stat.icon}</div>
               <div className="about__stat-number">
                 <AnimatedCounter target={stat.number} suffix={stat.suffix} />
