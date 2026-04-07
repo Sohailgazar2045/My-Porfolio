@@ -26,21 +26,24 @@ function App() {
 
   return (
     <div className="App">
-      <div className="scroll-progress">
-        <div
-          className="scroll-progress-bar"
-          style={{ transform: `scaleX(${scrollProgress})` }}
-        />
+      <div className="app-backdrop" aria-hidden="true" />
+      <div className="app-content">
+        <div className="scroll-progress">
+          <div
+            className="scroll-progress-bar"
+            style={{ transform: `scaleX(${scrollProgress})` }}
+          />
+        </div>
+        <Header />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Contact />
+        <Footer />
       </div>
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Education />
-      <Contact />
-      <Footer />
     </div>
   );
 }

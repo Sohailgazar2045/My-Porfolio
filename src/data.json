@@ -4,7 +4,7 @@
     "title": "Full Stack Developer",
     "email": "sohailgazar2045@gmail.com",
     "phone": "+923002045042",
-    "location": "Multan, Pakistan",
+    "location": "Lahore, Pakistan",
     "linkedin": "https://www.linkedin.com/in/muhammad-sohail-1b07081bb",
     "github": "https://github.com/Sohailgazar2045",
     "profileImage": "/sohail-removebg-preview.png",
@@ -24,7 +24,10 @@
       "Redux Thunk",
       "React Query",
       "Vue.js",
-      "Angular.js"
+      "Angular.js",
+      "Framer Motion",
+      "Lucide React",
+      "React Flow"
     ],
     "backend": [
       "Node.js",
@@ -35,13 +38,17 @@
       "Passport.js",
       "Twilio",
       "Auth2.0",
-      "SOS"
+      "SOS",
+      "WebSocket",
+      "Winston",
+      "FastAPI"
     ],
     "databases": [
       "MongoDB",
       "MySQL",
       "SQL Server",
       "PostgreSQL",
+      "Redis",
       "Sequelize ORM",
       "Prisma ORM",
       "TypeORM"
@@ -51,7 +58,10 @@
       "Typescript",
       "Mongoose",
       "Web Scraping (Puppeteer)",
-      "Socket.io"
+      "Socket.io",
+      "Python",
+      "PDF.js",
+      "React Speech Recognition"
     ],
     "apis": [
       "Firebase",
@@ -63,7 +73,14 @@
       "Currency API",
       "Google Cloud Functions",
       "MessageBird",
-      "Airtable"
+      "Airtable",
+      "Kalshi Trading API",
+      "Polymarket Gamma API",
+      "Polymarket CLOB API",
+      "Bird.com API",
+      "Microsoft Graph API",
+      "Azure OpenAI",
+      "Cloudinary"
     ],
     "tools": [
       "VSCode",
@@ -74,7 +91,12 @@
       "Git",
       "SSL/TLS",
       "AWS (RDS, EC2, S3 Buckets)",
-      "Railway"
+      "Railway",
+      "PM2",
+      "Vercel",
+      "Ngrok",
+      "Uvicorn",
+      "Axios"
     ]
   },
   "experience": [
@@ -114,6 +136,98 @@
     }
   ],
   "projects": [
+    {
+      "title": "SMS-Auto - Community Weft",
+      "description": "Built a Next.js application for SMS-based community subscriptions with Stripe payment workflows, Bird.com webhook automation, and Airtable-backed subscriber management.",
+      "technologies": [
+        "Next.js 14",
+        "TypeScript",
+        "Stripe API",
+        "Bird.com API",
+        "Airtable",
+        "Ngrok",
+        "Vercel"
+      ],
+      "achievements": [
+        "Implemented inbound SMS webhook processing with automated keyword handling for LOVE, UNSUB, and STOP flows",
+        "Built Stripe checkout and webhook integrations for subscriptions and one-time payments with phone pre-filling",
+        "Integrated Airtable for payment and phone-record persistence with tier updates during unsubscribe flows",
+        "Automated monthly care-message delivery and post-payment welcome message sequences"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Dual-Market Arbitrage Bot (Kalshi + Polymarket)",
+      "description": "Built a professional TypeScript-based arbitrage detection and execution bot that connects to Kalshi and Polymarket, identifies cross-platform opportunities with fee/gas-aware net edge calculations, and supports both paper and live trading.",
+      "technologies": [
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "WebSocket",
+        "Kalshi Trading API",
+        "Polymarket Gamma API",
+        "Polymarket CLOB API",
+        "Winston",
+        "Docker",
+        "PM2"
+      ],
+      "achievements": [
+        "Implemented market normalization and mapping across two prediction platforms with realistic fee and gas models",
+        "Built arbitrage detection logic with net-edge filtering and dynamic execution intervals (5-minute base, 1-minute final hour)",
+        "Developed both paper trading simulation with P&L tracking and live hedged execution with safety controls",
+        "Created a real-time dashboard with WebSocket updates, cycle monitoring, trade history, and structured logging"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Mail Flow Agent",
+      "description": "AI-driven email pipeline that fetches unread Microsoft 365 mail with attachments, extracts property data with Azure OpenAI, matches records in SQL Server with configurable smart matching, and saves renamed attachments under structured Asset paths with quarterly checklist upserts.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Azure OpenAI",
+        "Microsoft Graph API",
+        "SQL Server",
+        "Uvicorn"
+      ],
+      "achievements": [
+        "Built end-to-end processing from Graph inbox fetch through AI extraction, multi-strategy property matching (exact, LIKE, fuzzy, smart), and sender email/domain fallbacks",
+        "Implemented attachment storage with partnership-based folders, inferred document types (BS / IS / RR / TB), and checklist updates to tblQuarterlyCheckList",
+        "Delivered a FastAPI admin panel for operational settings with CSRF protection, settings history, run dashboards, and secure separation of secrets in .env",
+        "Added configurable rules (email filters, confidence thresholds, mark-as-read only when saved) and structured logging with run summaries and DB health checks"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Growth Genie (Web + API + FastAPI)",
+      "description": "Full-stack growth platform: a Next.js App Router client for idea validation, AI success scoring, expert-style feedback, auth (login, OTP, password reset), dashboards, knowledge base, file uploads with Cloudinary, PDF handling, voice input, and real-time insight flows; Redis powers live persona working status, paired with a NestJS API and FastAPI services for execution and resume-related workflows.",
+      "technologies": [
+        "Next.js 16",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Nest.js",
+        "FastAPI",
+        "Axios",
+        "WebSocket",
+        "Redis",
+        "Cloudinary",
+        "React Flow",
+        "PDF.js"
+      ],
+      "achievements": [
+        "Built the Growth Genie web app with idea validation, AI-powered success scores, persona-based analysis, and hypothesis testing with visual analytics",
+        "Implemented authentication, dashboard insights, knowledge base, Cloudinary-backed uploads, PDF-to-image handling, and speech-driven input",
+        "Contributed to the NestJS backend API and FastAPI services for execution flows and resume submission features integrated from the web client",
+        "Implemented Redis-backed real-time status for expert personas (working/idle) and pushed updates to the UI via WebSocket, alongside structured NestJS and FastAPI layers"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
     {
       "title": "Customer Order Pickup Dashboard for WynShop",
       "description": "Developed a comprehensive dashboard for WynShop (now owned by Instacart), an eCommerce platform providing services to large stores in the USA, enabling store managers and staff to efficiently handle customer orders.",

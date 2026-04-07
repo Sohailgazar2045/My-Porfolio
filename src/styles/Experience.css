@@ -19,7 +19,7 @@
 
 .experience__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 4.5rem;
 }
 
 .experience__timeline {
@@ -77,9 +77,14 @@
   flex: 1;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 1.75rem;
-  transition: all var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .experience__card:hover {
@@ -97,10 +102,12 @@
 }
 
 .experience__position {
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
 }
 
 .experience__company {

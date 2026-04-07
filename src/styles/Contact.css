@@ -19,7 +19,7 @@
 
 .contact__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 4.5rem;
 }
 
 .contact__grid {
@@ -38,10 +38,12 @@
 }
 
 .contact__info-intro h3 {
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .contact__info-intro p {
@@ -138,8 +140,11 @@ a.contact__info-value:hover {
 .contact__form {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: 2rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
 }
 
 .contact__form-group {

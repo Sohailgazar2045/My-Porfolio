@@ -19,7 +19,7 @@
 
 .projects__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 4.5rem;
 }
 
 .projects__grid {
@@ -32,18 +32,24 @@
 .projects__card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
   position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .projects__card:hover {
   border-color: var(--color-border-hover);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.2),
-    0 0 30px rgba(99, 102, 241, 0.05);
+    var(--shadow-lg),
+    0 0 0 1px rgba(99, 102, 241, 0.06) inset,
+    var(--shadow-glow);
 }
 
 .projects__card-accent {
@@ -102,11 +108,13 @@
 
 /* Title & Description */
 .projects__card-title {
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.75rem;
-  line-height: 1.4;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
   transition: color var(--transition-base);
 }
 

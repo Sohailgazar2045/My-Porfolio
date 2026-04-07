@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
+import { useTheme } from '../hooks/useTheme.js';
 import '../styles/Header.css';
 
 const NAV_ITEMS = [
@@ -12,6 +13,7 @@ const NAV_ITEMS = [
 ];
 
 const Header = () => {
+  const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -85,14 +87,26 @@ const Header = () => {
           </ul>
         </nav>
 
-        <button
-          className={`header__toggle ${isMenuOpen ? 'header__toggle--active' : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-        </button>
+        <div className="header__actions">
+          <button
+            type="button"
+            className="header__theme"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
+            {theme === 'dark' ? <HiSun size={20} aria-hidden /> : <HiMoon size={20} aria-hidden />}
+          </button>
+          <button
+            type="button"
+            className={`header__toggle ${isMenuOpen ? 'header__toggle--active' : ''}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile overlay */}
