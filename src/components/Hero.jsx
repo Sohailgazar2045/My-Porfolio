@@ -207,9 +207,9 @@ const Hero = () => {
         <motion.div
           ref={stageRef}
           className="hero__stage"
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           style={{
             rotateX,
             rotateY,
@@ -217,49 +217,96 @@ const Hero = () => {
             transformStyle: 'preserve-3d',
           }}
         >
-          <div className="hero__stage-glow" />
-          <div className="hero__frame">
-            <div className="hero__frame-corner hero__frame-corner--tl" />
-            <div className="hero__frame-corner hero__frame-corner--br" />
-            <div className="hero__image-wrap">
-              <img
-                src={profileImage}
-                alt={`${name} — profile`}
-                className="hero__image"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextElementSibling.style.display = 'flex';
-                }}
-              />
-              <div className="hero__image-fallback" style={{ display: 'none' }}>
-                <span>{name.split(' ').map((n) => n[0]).join('')}</span>
+          <div className="hero__orbit hero__orbit--a" aria-hidden />
+          <div className="hero__orbit hero__orbit--b" aria-hidden />
+          <div className="hero__stage-glow" aria-hidden />
+
+          <motion.div
+            className="hero__frame-block"
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.99 }}
+          >
+            <div className="hero__frame">
+              <div className="hero__frame-shine" aria-hidden />
+              <div className="hero__frame-corner hero__frame-corner--tl" />
+              <div className="hero__frame-corner hero__frame-corner--br" />
+              <div className="hero__image-wrap">
+                <img
+                  src={profileImage}
+                  alt={`${name} — profile`}
+                  className="hero__image"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    const next = e.target.nextElementSibling;
+                    if (next) next.style.display = 'flex';
+                  }}
+                />
+                <div className="hero__image-fallback" style={{ display: 'none' }}>
+                  <span>{name.split(' ').map((n) => n[0]).join('')}</span>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <motion.div
             className="hero__chip hero__chip--1"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+            initial={{ opacity: 0, x: 24, scale: 0.85 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22, delay: 0.55 }}
           >
-            <span className="hero__chip-dot" style={{ background: '#38bdf8' }} />
-            React
+            <motion.span
+              className="hero__chip-dot"
+              style={{ background: '#38bdf8' }}
+              animate={{ scale: [1, 1.15, 1], opacity: [1, 0.75, 1] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.span
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              React
+            </motion.span>
           </motion.div>
           <motion.div
             className="hero__chip hero__chip--2"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 5.1, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            initial={{ opacity: 0, x: -24, scale: 0.85 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22, delay: 0.68 }}
           >
-            <span className="hero__chip-dot" style={{ background: '#4ade80' }} />
-            Node
+            <motion.span
+              className="hero__chip-dot"
+              style={{ background: '#4ade80' }}
+              animate={{ scale: [1, 1.15, 1], opacity: [1, 0.75, 1] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+            />
+            <motion.span
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 5.1, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+            >
+              Node
+            </motion.span>
           </motion.div>
           <motion.div
             className="hero__chip hero__chip--3"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+            initial={{ opacity: 0, y: 20, scale: 0.85 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22, delay: 0.8 }}
           >
-            <span className="hero__chip-dot" style={{ background: '#2563eb' }} />
-            TypeScript
+            <motion.span
+              className="hero__chip-dot"
+              style={{ background: '#2563eb' }}
+              animate={{ scale: [1, 1.15, 1], opacity: [1, 0.75, 1] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.55 }}
+            />
+            <motion.span
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 0.45 }}
+            >
+              TypeScript
+            </motion.span>
           </motion.div>
         </motion.div>
       </div>
