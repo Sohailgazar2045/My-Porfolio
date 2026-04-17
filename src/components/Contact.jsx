@@ -8,6 +8,7 @@ import {
 } from 'react-icons/hi';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import data from '../data.json';
+import { fadeBlurUp, fadeSlideRight, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -47,31 +48,17 @@ const Contact = () => {
     { icon: <FaLinkedinIn size={20} />, href: linkedin, label: 'LinkedIn' },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
-  };
+  const containerVariants = staggerContainer(0.1, 0.05);
+  const itemVariants = fadeUpItem;
 
   return (
     <section id="contact" className="contact">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
           className="contact__header"
         >
           <span className="section-label">Contact</span>
@@ -140,10 +127,10 @@ const Contact = () => {
           <motion.form
             className="contact__form glow-card"
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={fadeSlideRight}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
           >
             <div className="contact__form-group">
               <label htmlFor="name" className="contact__label">

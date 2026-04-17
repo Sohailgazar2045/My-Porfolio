@@ -2,47 +2,34 @@ import { motion } from 'framer-motion';
 import { HiExternalLink, HiCheck } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import data from '../data.json';
+import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Projects.css';
 
 const GRADIENT_ACCENTS = [
-  { from: '#6366f1', to: '#8b5cf6' },
-  { from: '#ec4899', to: '#f43f5e' },
-  { from: '#06b6d4', to: '#3b82f6' },
-  { from: '#10b981', to: '#14b8a6' },
-  { from: '#f59e0b', to: '#ef4444' },
-  { from: '#8b5cf6', to: '#06b6d4' },
-  { from: '#f43f5e', to: '#fb923c' },
-  { from: '#14b8a6', to: '#6366f1' },
+  { from: '#c084fc', to: '#f472b6' },
+  { from: '#e879f9', to: '#38bdf8' },
+  { from: '#f472b6', to: '#fb923c' },
+  { from: '#38bdf8', to: '#4ade80' },
+  { from: '#a855f7', to: '#ec4899' },
+  { from: '#22d3ee', to: '#818cf8' },
+  { from: '#f43f5e', to: '#fbbf24' },
+  { from: '#34d399', to: '#2dd4bf' },
 ];
 
 const Projects = () => {
   const { projects } = data;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
+  const containerVariants = staggerContainer(0.1, 0);
+  const cardVariants = fadeUpItem;
 
   return (
     <section id="projects" className="projects">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
           className="projects__header"
         >
           <span className="section-label">Projects</span>
@@ -71,11 +58,15 @@ const Projects = () => {
                   '--accent-to': accent.to,
                 }}
               >
-                {/* Card accent line */}
-                <div className="projects__card-accent" />
+                <div
+                  className="projects__card-rail"
+                  style={{
+                    background: `linear-gradient(180deg, var(--accent-from), var(--accent-to))`,
+                  }}
+                  aria-hidden
+                />
 
                 <div className="projects__card-content">
-                  {/* Top section */}
                   <div className="projects__card-top">
                     <span className="projects__card-number">
                       {String(index + 1).padStart(2, '0')}

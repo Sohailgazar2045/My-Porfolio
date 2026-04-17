@@ -12,9 +12,9 @@
   inset: 0;
   opacity: 0.4;
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.07) 0%, transparent 45%),
-    radial-gradient(circle at 85% 10%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.06) 0%, transparent 42%);
+    radial-gradient(circle at 20% 20%, rgba(192, 132, 252, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(232, 121, 249, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.06) 0%, transparent 42%);
   pointer-events: none;
 }
 
@@ -42,21 +42,34 @@
 
 .learn-track {
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100%;
+  overflow: hidden;
 }
 
 .learn-track__accent-bar {
-  height: 4px;
-  width: 100%;
+  width: 5px;
+  flex-shrink: 0;
   background: linear-gradient(
-    90deg,
-    var(--track-accent, var(--color-primary)),
-    color-mix(in srgb, var(--track-accent, #fff) 65%, transparent)
+    180deg,
+    var(--track-accent, var(--color-primary)) 0%,
+    color-mix(in srgb, var(--track-accent, var(--color-primary)) 35%, transparent) 100%
   );
-  opacity: 0.85;
+  opacity: 0.95;
+  border-radius: var(--radius-2xl) 0 0 var(--radius-2xl);
+}
+
+.learn-track__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .learn-track__head {
-  padding: 1.5rem 1.5rem 1rem;
+  padding: 1.45rem 1.5rem 0.85rem;
 }
 
 .learn-track__index {
@@ -73,13 +86,13 @@
 }
 
 .learn-track__title {
-  font-family: var(--font-editorial, var(--font-display));
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   color: var(--color-text-primary);
   margin-bottom: 0.5rem;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .learn-track__summary {
@@ -91,10 +104,10 @@
 .learn-track__steps {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 1.25rem 1.35rem;
+  padding: 0.35rem 1.35rem 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .learn-step {
@@ -108,8 +121,8 @@
 }
 
 .learn-step:hover {
-  background: rgba(148, 163, 184, 0.06);
-  border-color: var(--color-border);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .learn-step__marker {
@@ -158,19 +171,20 @@
 
 .learn-skill-pill {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.26rem 0.5rem;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--color-text-secondary);
-  background: rgba(148, 163, 184, 0.06);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 @supports not (color: color-mix(in srgb, white 50%, black)) {
   .learn-step__marker {
-    background: rgba(99, 102, 241, 0.12);
+    background: rgba(192, 132, 252, 0.12);
     border-color: var(--color-border);
   }
   .learn-track__accent-bar {
@@ -183,6 +197,16 @@
 }
 
 @media (max-width: 576px) {
+  .learn-track {
+    flex-direction: column;
+  }
+
+  .learn-track__accent-bar {
+    width: 100%;
+    height: 4px;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  }
+
   .learn-track__head { padding: 1.25rem 1.15rem 0.85rem; }
   .learn-track__steps { padding: 0.35rem 0.9rem 1.15rem; }
   .learn-step { grid-template-columns: 1fr; padding: 0.85rem 0.5rem; }

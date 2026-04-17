@@ -25,7 +25,7 @@
 
 .about__stat-card {
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 1.85rem 1.35rem;
   position: relative;
   overflow: hidden;
 }
@@ -51,12 +51,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   margin: 0 auto 1rem;
-  border-radius: var(--radius-lg);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 16px;
+  background: rgba(192, 132, 252, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.2);
   color: var(--color-primary-light);
   font-size: 1.3rem;
   position: relative;
@@ -97,20 +97,22 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.05rem 1.25rem;
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  font-size: 0.94rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: var(--card-surface);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
-  transition: all var(--transition-base);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about__highlight:hover {
-  border-color: rgba(129, 140, 248, 0.28);
+  border-color: rgba(244, 114, 182, 0.28);
   color: var(--color-text-primary);
   transform: translateX(4px);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.1);
 }
 
 .about__highlight-marker {
@@ -119,7 +121,7 @@
   border-radius: 50%;
   background: var(--gradient-primary);
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
 }
 
 @media (max-width: 768px) {

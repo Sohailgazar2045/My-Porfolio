@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { HiCode, HiBriefcase, HiLightningBolt, HiChip } from 'react-icons/hi';
 import data from '../data.json';
+import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/About.css';
 
 const AnimatedCounter = ({ target, suffix = '' }) => {
@@ -46,31 +47,17 @@ const About = () => {
     'Strong focus on clean architecture & code quality',
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
-  };
+  const containerVariants = staggerContainer(0.1, 0.15);
+  const itemVariants = fadeUpItem;
 
   return (
     <section id="about" className="about">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
           className="about__header"
         >
           <span className="section-label">About Me</span>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import SystemBoot from './components/SystemBoot';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
@@ -14,6 +15,10 @@ import './App.css';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [bootDone, setBootDone] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,8 +37,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App" onMouseMove={handleMouseMove}>
+    <div className={`App ${bootDone ? 'App--ready' : ''}`} onMouseMove={handleMouseMove}>
+      {!bootDone && <SystemBoot onComplete={() => setBootDone(true)} />}
       <div className="app-spotlight" aria-hidden="true" />
+      <div className="app-mesh" aria-hidden="true" />
       <div className="app-backdrop" aria-hidden="true" />
       <div className="app-content">
         <div className="scroll-progress">

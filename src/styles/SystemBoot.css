@@ -1,0 +1,174 @@
+/* ========================================
+   SYSTEM BOOT — Chromatic terminal
+   ======================================== */
+.system-boot {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: #06040c;
+  color: #e9d5ff;
+  font-family: var(--font-mono);
+}
+
+.system-boot__scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(192, 132, 252, 0.04) 2px,
+    rgba(192, 132, 252, 0.04) 4px
+  );
+  animation: system-boot-scan 6s linear infinite;
+}
+
+@keyframes system-boot-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(8px); }
+}
+
+.system-boot__inner {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 2rem 2.25rem;
+  border: 1px solid rgba(244, 114, 182, 0.35);
+  border-radius: 8px;
+  background: rgba(12, 8, 22, 0.94);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(192, 132, 252, 0.12),
+    inset 0 0 48px rgba(244, 114, 182, 0.05);
+}
+
+.system-boot__inner::before,
+.system-boot__inner::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #f472b6;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.system-boot__inner::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.system-boot__inner::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.system-boot__eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(192, 132, 252, 0.65);
+  margin-bottom: 0.75rem;
+}
+
+.system-boot__title {
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: #faf5ff;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.system-boot__hint {
+  font-size: 0.7rem;
+  color: rgba(244, 114, 182, 0.55);
+  margin-bottom: 1.5rem;
+}
+
+.system-boot__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.78rem;
+  margin-bottom: 0.4rem;
+}
+
+.system-boot__label {
+  color: rgba(233, 213, 255, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.system-boot__pct {
+  color: #f0abfc;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.system-boot__bar {
+  height: 4px;
+  background: rgba(192, 132, 252, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.system-boot__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a855f7, #f472b6, #38bdf8);
+  box-shadow: 0 0 14px rgba(244, 114, 182, 0.45);
+  transition: width 0.08s linear;
+}
+
+.system-boot__log {
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: rgba(233, 213, 255, 0.9);
+  min-height: 8.5rem;
+  margin-bottom: 1.25rem;
+  border-left: 2px solid rgba(192, 132, 252, 0.35);
+  padding-left: 0.85rem;
+}
+
+.system-boot__log-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.system-boot__skip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0f0a1a;
+  background: linear-gradient(135deg, #e9d5ff, #f472b6);
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.system-boot__skip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(244, 114, 182, 0.45);
+}
+
+.system-boot__skip:focus-visible {
+  outline: 2px solid #f472b6;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .system-boot__scan {
+    animation: none;
+  }
+}

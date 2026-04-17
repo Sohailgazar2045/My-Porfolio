@@ -1,0 +1,4 @@
+/* Global tweaks (main design tokens live in App.css) */
+#root {
+  min-height: 100vh;
+}

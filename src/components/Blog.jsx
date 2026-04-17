@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiClock, HiChevronDown, HiSparkles } from 'react-icons/hi';
 import data from '../data.json';
+import { fadeBlurUp, fadeUpItem } from '../lib/motion';
 import '../styles/Blog.css';
 
 const Blog = () => {
@@ -22,10 +23,10 @@ const Blog = () => {
       <div className="container">
         <motion.div
           className="insights__header"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
         >
           <span className="section-label">Insights</span>
           <h2 className="section-title insights__title">Engineering notes</h2>
@@ -38,10 +39,10 @@ const Blog = () => {
         {featured && (
           <motion.article
             className="insights-featured glow-card"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUpItem}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.55 }}
           >
             <div className="insights-featured__ribbon">
               <HiSparkles aria-hidden />

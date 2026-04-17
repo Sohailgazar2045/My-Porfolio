@@ -1,92 +1,119 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HiBriefcase, HiCalendar, HiChevronRight } from 'react-icons/hi';
+import { HiCalendar, HiChevronDown } from 'react-icons/hi';
 import data from '../data.json';
+import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Experience.css';
+
+const RAIL_PAIRS = [
+  ['#c084fc', '#f472b6'],
+  ['#38bdf8', '#818cf8'],
+  ['#f472b6', '#fb923c'],
+];
+
+const PREVIEW = 2;
 
 const Experience = () => {
   const { experience } = data;
+  const [expanded, setExpanded] = useState(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
-  };
+  const containerVariants = staggerContainer(0.1, 0.05);
+  const cardVariants = fadeUpItem;
 
   return (
     <section id="experience" className="experience">
+      <div className="experience__ambient" aria-hidden />
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeBlurUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.5 }}
           className="experience__header"
         >
           <span className="section-label">Experience</span>
-          <h2 className="section-title">Where I've Worked</h2>
+          <h2 className="section-title">Career trajectory</h2>
           <p className="section-subtitle">
-            My professional journey building web applications at scale
+            Seniority, scope, and outcomes—distilled. Expand any role for the full narrative.
           </p>
         </motion.div>
 
         <motion.div
-          className="experience__timeline"
+          className="experience__grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, margin: '-40px' }}
         >
-          <div className="experience__line" />
+          {experience.map((exp, index) => {
+            const isOpen = expanded === index;
+            const hasMore = exp.responsibilities.length > PREVIEW;
+            const items = isOpen ? exp.responsibilities : exp.responsibilities.slice(0, PREVIEW);
+            const [from, to] = RAIL_PAIRS[index % RAIL_PAIRS.length];
+            const extraCount = exp.responsibilities.length - PREVIEW;
 
-          {experience.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="experience__item"
-              variants={itemVariants}
-            >
-              <div className="experience__marker">
-                <div className="experience__marker-dot">
-                  <HiBriefcase />
-                </div>
-                {index < experience.length - 1 && (
-                  <div className="experience__marker-line" />
-                )}
-              </div>
-
-              <div className="experience__card glow-card">
-                <div className="experience__card-top">
-                  <div>
-                    <h3 className="experience__position">{exp.position}</h3>
-                    <p className="experience__company">{exp.company}</p>
+            return (
+              <motion.article
+                key={index}
+                className="experience__card glow-card"
+                variants={cardVariants}
+              >
+                <div
+                  className="experience__rail"
+                  style={{ background: `linear-gradient(180deg, ${from}, ${to})` }}
+                  aria-hidden
+                />
+                <div className="experience__inner">
+                  <div className="experience__meta">
+                    <span className="experience__index">{String(index + 1).padStart(2, '0')}</span>
+                    <span className="experience__duration">
+                      <HiCalendar aria-hidden />
+                      {exp.duration}
+                    </span>
                   </div>
-                  <span className="experience__duration">
-                    <HiCalendar />
-                    {exp.duration}
-                  </span>
-                </div>
 
-                <ul className="experience__responsibilities">
-                  {exp.responsibilities.map((item, i) => (
-                    <li key={i} className="experience__responsibility">
-                      <HiChevronRight className="experience__bullet" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
+                  <p className="experience__org">{exp.company}</p>
+                  <h3 className="experience__position">{exp.position}</h3>
+
+                  <div className="experience__divider" aria-hidden />
+
+                  <div className="experience__highlights">
+                    <span className="experience__highlights-label">Highlights</span>
+                    <motion.ul layout className="experience__list">
+                      {items.map((item, i) => (
+                        <li key={i} className="experience__list-item">
+                          <span className="experience__marker" aria-hidden />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  </div>
+
+                  {hasMore && (
+                    <button
+                      type="button"
+                      className="experience__expand"
+                      onClick={() => setExpanded(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                    >
+                      <span className="experience__expand-text">
+                        {isOpen
+                          ? 'Collapse'
+                          : `View ${extraCount} more highlight${extraCount === 1 ? '' : 's'}`}
+                      </span>
+                      <motion.span
+                        className="experience__expand-icon"
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <HiChevronDown aria-hidden />
+                      </motion.span>
+                    </button>
+                  )}
+                </div>
+              </motion.article>
+            );
+          })}
         </motion.div>
       </div>
     </section>
