@@ -1,5 +1,5 @@
 /* ========================================
-   HERO — Chromatic Nebula
+   HERO — Slate backdrop
    ======================================== */
 .hero {
   position: relative;
@@ -24,15 +24,15 @@
   background:
     conic-gradient(
       from 220deg at 40% 35%,
-      rgba(192, 132, 252, 0.35) 0deg,
-      rgba(244, 114, 182, 0.22) 90deg,
-      rgba(56, 189, 248, 0.2) 180deg,
-      rgba(167, 139, 250, 0.12) 270deg,
-      rgba(192, 132, 252, 0.35) 360deg
+      rgba(30, 64, 175, 0.28) 0deg,
+      rgba(37, 99, 235, 0.2) 90deg,
+      rgba(15, 118, 110, 0.14) 180deg,
+      rgba(51, 65, 85, 0.2) 270deg,
+      rgba(30, 64, 175, 0.28) 360deg
     );
   filter: blur(90px);
   animation: hero-mesh-drift 18s ease-in-out infinite alternate;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 @keyframes hero-mesh-drift {
@@ -44,8 +44,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 45% at 75% 45%, rgba(244, 114, 182, 0.12), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 20% 70%, rgba(56, 189, 248, 0.1), transparent 55%);
+    radial-gradient(ellipse 55% 45% at 75% 45%, rgba(37, 99, 235, 0.1), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 20% 70%, rgba(15, 118, 110, 0.08), transparent 55%);
 }
 
 .hero__grid {

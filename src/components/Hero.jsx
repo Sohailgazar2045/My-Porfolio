@@ -258,7 +258,7 @@ const Hero = () => {
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
           >
-            <span className="hero__chip-dot" style={{ background: '#c084fc' }} />
+            <span className="hero__chip-dot" style={{ background: '#2563eb' }} />
             TypeScript
           </motion.div>
         </motion.div>

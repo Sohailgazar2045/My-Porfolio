@@ -525,7 +525,7 @@
         "id": "product-fullstack",
         "title": "Product-grade full-stack",
         "summary": "End-to-end delivery from Next.js surfaces to NestJS services and PostgreSQL.",
-        "accent": "#818cf8",
+        "accent": "#1e40af",
         "steps": [
           {
             "title": "Type-safe contracts first",
@@ -548,7 +548,7 @@
         "id": "frontend-excellence",
         "title": "Frontend excellence",
         "summary": "Interfaces that feel premium: motion, accessibility, and data discipline.",
-        "accent": "#c084fc",
+        "accent": "#2563eb",
         "steps": [
           {
             "title": "Design systems in Tailwind",
@@ -571,7 +571,7 @@
         "id": "backend-platform",
         "title": "Backend & platform",
         "summary": "Messaging, integrations, and observability for serious traffic.",
-        "accent": "#22d3ee",
+        "accent": "#0d9488",
         "steps": [
           {
             "title": "Integrations that recover",
@@ -594,7 +594,7 @@
         "id": "ai-automation",
         "title": "AI-assisted automation",
         "summary": "When to blend Azure OpenAI, Microsoft Graph, and FastAPI for operational wins.",
-        "accent": "#34d399",
+        "accent": "#059669",
         "steps": [
           {
             "title": "Inbox-to-action pipelines",

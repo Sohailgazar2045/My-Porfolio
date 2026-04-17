@@ -181,7 +181,7 @@ html[data-theme='light'] .skills__card-count {
   }
 
   .skills__card-icon {
-    background: rgba(192, 132, 252, 0.15);
+    background: rgba(59, 130, 246, 0.15);
     border-color: var(--color-border);
   }
 
@@ -190,7 +190,7 @@ html[data-theme='light'] .skills__card-count {
   }
 
   .skills__tag:hover {
-    background: rgba(192, 132, 252, 0.12);
+    background: rgba(59, 130, 246, 0.12);
     border-color: var(--color-primary);
   }
 }

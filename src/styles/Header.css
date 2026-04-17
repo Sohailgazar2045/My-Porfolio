@@ -87,7 +87,7 @@ html[data-theme='light'] .header__container {
   background: var(--gradient-primary);
   margin-bottom: -0.65rem;
   animation: header-dot-pulse 2.2s ease-in-out infinite;
-  box-shadow: 0 0 14px rgba(244, 114, 182, 0.55);
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.4);
 }
 
 @keyframes header-dot-pulse {
@@ -138,7 +138,7 @@ html[data-theme='light'] .header__container {
   height: 3px;
   background: var(--gradient-primary);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 14px rgba(244, 114, 182, 0.55);
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.4);
 }
 
 .header__actions {

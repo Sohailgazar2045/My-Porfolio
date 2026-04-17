@@ -12,12 +12,12 @@ import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Skills.css';
 
 const CATEGORY_META = {
-  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#c084fc' },
-  backend: { icon: <HiServer />, label: 'Backend', color: '#f472b6' },
-  databases: { icon: <HiDatabase />, label: 'Databases', color: '#38bdf8' },
-  other: { icon: <HiCode />, label: 'Core', color: '#4ade80' },
-  apis: { icon: <HiCloud />, label: 'APIs & Services', color: '#fb923c' },
-  tools: { icon: <HiCog />, label: 'Tools & DevOps', color: '#e879f9' },
+  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#2563eb' },
+  backend: { icon: <HiServer />, label: 'Backend', color: '#475569' },
+  databases: { icon: <HiDatabase />, label: 'Databases', color: '#0d9488' },
+  other: { icon: <HiCode />, label: 'Core', color: '#059669' },
+  apis: { icon: <HiCloud />, label: 'APIs & Services', color: '#0369a1' },
+  tools: { icon: <HiCog />, label: 'Tools & DevOps', color: '#334155' },
 };
 
 const Skills = () => {
@@ -51,7 +51,7 @@ const Skills = () => {
           viewport={{ once: true, margin: '-50px' }}
         >
           {Object.entries(skills).map(([category, items]) => {
-            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#c084fc' };
+            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#2563eb' };
             return (
               <motion.div
                 key={category}

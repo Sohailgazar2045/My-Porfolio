@@ -55,8 +55,8 @@
   height: 52px;
   margin: 0 auto 1rem;
   border-radius: 16px;
-  background: rgba(192, 132, 252, 0.1);
-  border: 1px solid rgba(192, 132, 252, 0.2);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   color: var(--color-primary-light);
   font-size: 1.3rem;
   position: relative;
@@ -109,10 +109,10 @@
 }
 
 .about__highlight:hover {
-  border-color: rgba(244, 114, 182, 0.28);
+  border-color: rgba(59, 130, 246, 0.28);
   color: var(--color-text-primary);
   transform: translateX(4px);
-  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.1);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
 }
 
 .about__highlight-marker {
@@ -121,7 +121,7 @@
   border-radius: 50%;
   background: var(--gradient-primary);
   flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.35);
 }
 
 @media (max-width: 768px) {

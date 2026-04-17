@@ -6,14 +6,14 @@ import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Projects.css';
 
 const GRADIENT_ACCENTS = [
-  { from: '#c084fc', to: '#f472b6' },
-  { from: '#e879f9', to: '#38bdf8' },
-  { from: '#f472b6', to: '#fb923c' },
-  { from: '#38bdf8', to: '#4ade80' },
-  { from: '#a855f7', to: '#ec4899' },
-  { from: '#22d3ee', to: '#818cf8' },
-  { from: '#f43f5e', to: '#fbbf24' },
-  { from: '#34d399', to: '#2dd4bf' },
+  { from: '#1e40af', to: '#2563eb' },
+  { from: '#1e3a8a', to: '#3b82f6' },
+  { from: '#0f766e', to: '#0d9488' },
+  { from: '#334155', to: '#64748b' },
+  { from: '#0369a1', to: '#0ea5e9' },
+  { from: '#1d4ed8', to: '#60a5fa' },
+  { from: '#155e75', to: '#0891b2' },
+  { from: '#475569', to: '#94a3b8' },
 ];
 
 const Projects = () => {

@@ -5,7 +5,7 @@
   padding: 5rem 0 2.25rem;
   position: relative;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(192, 132, 252, 0.08), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37, 99, 235, 0.07), transparent 55%),
     linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 40%);
 }
 
@@ -92,10 +92,10 @@
 
 .footer__social-link:hover {
   color: var(--color-primary-light);
-  border-color: rgba(244, 114, 182, 0.4);
-  background: rgba(192, 132, 252, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.1);
   transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(192, 132, 252, 0.15);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.12);
 }
 
 .footer__divider {
