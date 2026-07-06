@@ -62,9 +62,10 @@ const Contact = () => {
           className="contact__header"
         >
           <span className="section-label">Contact</span>
-          <h2 className="section-title">Let's Work Together</h2>
+          <h2 className="section-title">Get in touch</h2>
           <p className="section-subtitle">
-            Have a project in mind? I'd love to hear about it. Let's build something great.
+            Whether it's a role, a project, or a question about something
+            I've built — my inbox is open.
           </p>
         </motion.div>
 
@@ -78,10 +79,11 @@ const Contact = () => {
             viewport={{ once: true, margin: '-50px' }}
           >
             <motion.div className="contact__info-intro" variants={itemVariants}>
-              <h3>Get in touch</h3>
+              <h3>Say hi</h3>
               <p>
-                I'm always open to discussing new projects, creative ideas,
-                or opportunities to be part of your vision.
+                I read every message. If you're hiring, building something,
+                or stuck on a problem I might have run into before, drop me
+                a line.
               </p>
             </motion.div>
 

@@ -6,18 +6,21 @@ import {
   HiCode,
   HiCloud,
   HiCog,
+  HiLightningBolt,
 } from 'react-icons/hi';
 import data from '../data.json';
+import { getSkillIcon } from '../lib/skillIcons';
 import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Skills.css';
 
 const CATEGORY_META = {
-  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#2563eb' },
-  backend: { icon: <HiServer />, label: 'Backend', color: '#475569' },
-  databases: { icon: <HiDatabase />, label: 'Databases', color: '#0d9488' },
-  other: { icon: <HiCode />, label: 'Core', color: '#059669' },
-  apis: { icon: <HiCloud />, label: 'APIs & Services', color: '#0369a1' },
-  tools: { icon: <HiCog />, label: 'Tools & DevOps', color: '#334155' },
+  languages: { icon: <HiCode />, label: 'Languages', color: '#b1552f' },
+  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#c17a3c' },
+  backend: { icon: <HiServer />, label: 'Backend', color: '#9c6242' },
+  databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#7c7a4a' },
+  cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#6f7d55' },
+  integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#be8a3c' },
+  other: { icon: <HiCog />, label: 'Other', color: '#a86a5c' },
 };
 
 const Skills = () => {
@@ -37,9 +40,11 @@ const Skills = () => {
           className="skills__header"
         >
           <span className="section-label">Skills</span>
-          <h2 className="section-title">Technical Arsenal</h2>
+          <h2 className="section-title">What I work with</h2>
           <p className="section-subtitle">
-            Technologies and tools I use to bring products to life
+            The stack I've spent the most time in. Strongest in the
+            TypeScript, React and Node world — the rest I've used on real
+            projects, not just tutorials.
           </p>
         </motion.div>
 
@@ -78,11 +83,15 @@ const Skills = () => {
                     </div>
                   </div>
                   <div className="skills__tags">
-                    {items.map((skill, index) => (
-                      <span key={index} className="skills__tag">
-                        {skill}
-                      </span>
-                    ))}
+                    {items.map((skill, index) => {
+                      const Icon = getSkillIcon(skill);
+                      return (
+                        <span key={index} className="skills__tag">
+                          <Icon className="skills__tag-icon" aria-hidden />
+                          {skill}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>

@@ -6,9 +6,9 @@ import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Experience.css';
 
 const RAIL_PAIRS = [
-  ['#1e40af', '#2563eb'],
-  ['#0f766e', '#14b8a6'],
-  ['#334155', '#64748b'],
+  ['#b1552f', '#c9713f'],
+  ['#7c7a4a', '#9a9a5e'],
+  ['#9c6242', '#bd8a5a'],
 ];
 
 const PREVIEW = 2;
@@ -32,9 +32,10 @@ const Experience = () => {
           className="experience__header"
         >
           <span className="section-label">Experience</span>
-          <h2 className="section-title">Career trajectory</h2>
+          <h2 className="section-title">Where I've worked</h2>
           <p className="section-subtitle">
-            Seniority, scope, and outcomes—distilled. Expand any role for the full narrative.
+            Three roles over about three years. Expand any one to see what I
+            actually worked on.
           </p>
         </motion.div>
 

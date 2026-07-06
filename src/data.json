@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "name": "Muhammad Sohail",
-    "title": "Full Stack Developer",
+    "title": "Full Stack Developer · Backend & AI-Integrated Applications",
     "email": "sohailgazar2045@gmail.com",
     "phone": "+923002045042",
     "location": "Lahore, Pakistan",
@@ -10,93 +10,77 @@
     "profileImage": "/sohail.jpeg",
     "resumeUrl": "/sohail-resume.pdf"
   },
-  "summary": "Full Stack Web Developer with over 3 years of experience in developing software products, specializing in both front-end and back-end development. Highly proficient in JavaScript, and experienced in building scalable, optimized, and maintainable software. Skilled in working both independently and collaboratively, with a focus on writing clean, efficient, and reusable code.",
+  "summary": "I'm a full-stack developer based in Lahore, three years into building things across the JavaScript and TypeScript stack — React and Next.js on the front, Node, NestJS and FastAPI on the back, with SQL and NoSQL databases behind them. Lately my work has leaned toward automation: an AI-driven email pipeline on Azure OpenAI, a TypeScript trading bot wired into live market APIs over WebSocket, and SMS and payment flows that mostly run themselves. I like owning a feature the whole way — from the data model and system design through to deployment on Docker, AWS or Railway — and I care more about code that still makes sense in six months than code that demos well.",
   "skills": {
+    "languages": [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "Python",
+      "SQL"
+    ],
     "frontend": [
       "React",
-      "Next.js",
+      "Next.js (14/16)",
       "Redux Toolkit",
-      "React Hook Form",
-      "PrimeReact",
-      "Context API",
-      "Tailwind CSS",
-      "Chart.js",
-      "Redux Thunk",
       "React Query",
       "Vue.js",
-      "Angular.js",
+      "Tailwind CSS",
       "Framer Motion",
-      "Lucide React",
+      "React Hook Form",
+      "PrimeReact",
+      "Chart.js",
       "React Flow"
     ],
     "backend": [
       "Node.js",
       "Express.js",
-      "Nest.js",
+      "NestJS",
+      "FastAPI",
       "LoopBack 4",
       "GraphQL",
-      "Passport.js",
-      "Twilio",
-      "Auth2.0",
-      "SOS",
       "WebSocket",
-      "Winston",
-      "FastAPI"
+      "Passport.js",
+      "Socket.io"
     ],
     "databases": [
-      "MongoDB",
-      "MySQL",
-      "SQL Server",
       "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "SQL Server",
       "Redis",
-      "Sequelize ORM",
-      "Prisma ORM",
-      "TypeORM"
+      "Prisma",
+      "TypeORM",
+      "Sequelize",
+      "Mongoose"
     ],
-    "other": [
-      "JavaScript ES6+",
-      "Typescript",
-      "Mongoose",
-      "Web Scraping (Puppeteer)",
-      "Socket.io",
-      "Python",
-      "PDF.js",
-      "React Speech Recognition"
-    ],
-    "apis": [
-      "Firebase",
-      "Slack API",
-      "Weather API",
-      "Stripe API",
-      "Cloudflare",
-      "BrainTree API",
-      "Currency API",
-      "Google Cloud Functions",
-      "MessageBird",
-      "Airtable",
-      "Kalshi Trading API",
-      "Polymarket Gamma API",
-      "Polymarket CLOB API",
-      "Bird.com API",
-      "Microsoft Graph API",
-      "Azure OpenAI",
-      "Cloudinary"
-    ],
-    "tools": [
-      "VSCode",
-      "Postman",
+    "cloud": [
+      "AWS (EC2, RDS, S3)",
       "Docker",
       "Nginx",
-      "GitHub",
-      "Git",
-      "SSL/TLS",
-      "AWS (RDS, EC2, S3 Buckets)",
-      "Railway",
       "PM2",
       "Vercel",
-      "Ngrok",
-      "Uvicorn",
-      "Axios"
+      "Railway",
+      "CI/CD",
+      "Git/GitHub"
+    ],
+    "integrations": [
+      "Stripe",
+      "Twilio",
+      "MessageBird",
+      "Azure OpenAI",
+      "Microsoft Graph API",
+      "OpenAI API",
+      "Firebase",
+      "Cloudinary",
+      "Kalshi & Polymarket APIs",
+      "Airtable",
+      "Google Cloud Functions"
+    ],
+    "other": [
+      "Web Scraping (Puppeteer)",
+      "OAuth2.0 / JWT",
+      "PDF.js",
+      "Winston Logging"
     ]
   },
   "experience": [
@@ -105,85 +89,40 @@
       "company": "Drwaphics",
       "duration": "Nov 2025 - Present",
       "responsibilities": [
-        "Developed SaaS applications and trading bots using NestJS, Node.js, TypeScript, PostgreSQL, and Google Cloud Functions.",
-        "Implemented SMS auto-subscription, alerts, and messaging workflows using Twilio and MessageBird.",
-        "Integrated Stripe for payments and subscription management.",
-        "Built and deployed scalable backend services on Railway, leveraging Airtable for data and automation.",
-        "Contributed to project planning, system design, and ongoing codebase refactoring."
+        "Developed SaaS applications and an automated trading bot using NestJS, Node.js, TypeScript, PostgreSQL, and Google Cloud Functions.",
+        "Built SMS auto-subscription, alerting, and messaging workflows using Twilio and MessageBird, including automated keyword-based flows (LOVE/UNSUB/STOP).",
+        "Integrated Stripe for subscription billing and one-time payments with webhook-driven status updates.",
+        "Deployed and maintained scalable backend services on Railway, using Airtable as a lightweight operational data layer.",
+        "Participated in system design discussions, sprint planning, and continuous refactoring of shared backend modules."
       ]
     },
     {
       "position": "Full Stack Developer",
       "company": "Atrule Technologies",
-      "duration": "June 2023 - Oct 2025",
+      "duration": "Jun 2023 - Oct 2025",
       "responsibilities": [
-        "Led projects and worked on end-to-end development using technologies such as React, Next.js, Node.js, Nest.js, GraphQL, Typescript, Prisma ORM, and Sequelize.",
-        "Developed both frontend and backend components, working on data integration and API development with Clerk, Passport.js, and Firebase Authentication.",
-        "Built responsive, user-friendly applications using PrimeReact, Formik, Tailwind CSS, and Redux Toolkit.",
-        "Refactored existing designs and ensured code reusability and maintainability."
+        "Led end-to-end feature development across React, Next.js, Node.js, NestJS, GraphQL, TypeScript, Prisma, and Sequelize for multiple client products.",
+        "Built authentication and authorization flows using Clerk, Passport.js, and Firebase Authentication across web applications.",
+        "Developed responsive, production-grade UIs using PrimeReact, Formik, Tailwind CSS, and Redux Toolkit.",
+        "Refactored legacy frontend and backend modules to improve code reusability, maintainability, and performance."
       ]
     },
     {
       "position": "Associate MERN Stack Developer",
       "company": "Pukat Digital",
-      "duration": "Jan 2023 - April 2023",
+      "duration": "Jan 2023 - Apr 2023",
       "responsibilities": [
-        "Implemented new features and fixed bugs on both the front-end and back-end of various projects.",
-        "Developed APIs using Node.js, Express.js, and MongoDB, and collaborated with front-end developers to integrate UI elements.",
-        "Worked within an Agile scrum environment and used Git for version control.",
-        "Scraped data from social media and other websites for integration into applications."
+        "Implemented new features and resolved bugs across the front-end and back-end of multiple client projects.",
+        "Built REST APIs with Node.js, Express.js, and MongoDB, collaborating closely with frontend developers on integration.",
+        "Worked within an Agile scrum team using Git for version control and code review.",
+        "Built web scraping pipelines to extract and integrate third-party data from social media and external websites."
       ]
     }
   ],
   "projects": [
     {
-      "title": "SMS-Auto - Community Weft",
-      "description": "Built a Next.js application for SMS-based community subscriptions with Stripe payment workflows, Bird.com webhook automation, and Airtable-backed subscriber management.",
-      "technologies": [
-        "Next.js 14",
-        "TypeScript",
-        "Stripe API",
-        "Bird.com API",
-        "Airtable",
-        "Ngrok",
-        "Vercel"
-      ],
-      "achievements": [
-        "Implemented inbound SMS webhook processing with automated keyword handling for LOVE, UNSUB, and STOP flows",
-        "Built Stripe checkout and webhook integrations for subscriptions and one-time payments with phone pre-filling",
-        "Integrated Airtable for payment and phone-record persistence with tier updates during unsubscribe flows",
-        "Automated monthly care-message delivery and post-payment welcome message sequences"
-      ],
-      "demoUrl": "#",
-      "githubUrl": "#"
-    },
-    {
-      "title": "Dual-Market Arbitrage Bot (Kalshi + Polymarket)",
-      "description": "Built a professional TypeScript-based arbitrage detection and execution bot that connects to Kalshi and Polymarket, identifies cross-platform opportunities with fee/gas-aware net edge calculations, and supports both paper and live trading.",
-      "technologies": [
-        "TypeScript",
-        "Node.js",
-        "Express.js",
-        "WebSocket",
-        "Kalshi Trading API",
-        "Polymarket Gamma API",
-        "Polymarket CLOB API",
-        "Winston",
-        "Docker",
-        "PM2"
-      ],
-      "achievements": [
-        "Implemented market normalization and mapping across two prediction platforms with realistic fee and gas models",
-        "Built arbitrage detection logic with net-edge filtering and dynamic execution intervals (5-minute base, 1-minute final hour)",
-        "Developed both paper trading simulation with P&L tracking and live hedged execution with safety controls",
-        "Created a real-time dashboard with WebSocket updates, cycle monitoring, trade history, and structured logging"
-      ],
-      "demoUrl": "#",
-      "githubUrl": "#"
-    },
-    {
-      "title": "Mail Flow Agent",
-      "description": "AI-driven email pipeline that fetches unread Microsoft 365 mail with attachments, extracts property data with Azure OpenAI, matches records in SQL Server with configurable smart matching, and saves renamed attachments under structured Asset paths with quarterly checklist upserts.",
+      "title": "Mail Flow Agent — AI Document Pipeline",
+      "description": "An end-to-end pipeline that reads unread Microsoft 365 mail, pulls structured property data out of the attachments with Azure OpenAI, and matches it against SQL Server — with a FastAPI admin panel to run and tune the whole thing.",
       "technologies": [
         "Python",
         "FastAPI",
@@ -193,48 +132,82 @@
         "Uvicorn"
       ],
       "achievements": [
-        "Built end-to-end processing from Graph inbox fetch through AI extraction, multi-strategy property matching (exact, LIKE, fuzzy, smart), and sender email/domain fallbacks",
-        "Implemented attachment storage with partnership-based folders, inferred document types (BS / IS / RR / TB), and checklist updates to tblQuarterlyCheckList",
-        "Delivered a FastAPI admin panel for operational settings with CSRF protection, settings history, run dashboards, and secure separation of secrets in .env",
-        "Added configurable rules (email filters, confidence thresholds, mark-as-read only when saved) and structured logging with run summaries and DB health checks"
+        "Ingests unread Microsoft 365 emails with attachments, extracts structured property data with Azure OpenAI, and matches records in SQL Server via exact, fuzzy, and smart-matching strategies",
+        "Routes attachments into structured asset folders with inferred document classification (BS/IS/RR/TB) and quarterly checklist updates",
+        "Ships a FastAPI admin panel with CSRF protection, run dashboards, settings history, and secrets kept in environment config",
+        "Configurable rules (email filters, confidence thresholds, read-state handling) with structured run logging and DB health checks"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Growth Genie (Web + API + FastAPI)",
-      "description": "Full-stack growth platform: a Next.js App Router client for idea validation, AI success scoring, expert-style feedback, auth (login, OTP, password reset), dashboards, knowledge base, file uploads with Cloudinary, PDF handling, voice input, and real-time insight flows; Redis powers live persona working status, paired with a NestJS API and FastAPI services for execution and resume-related workflows.",
+      "title": "Dual-Market Arbitrage Bot (Kalshi + Polymarket)",
+      "description": "A TypeScript bot that watches Kalshi and Polymarket, finds the same outcome priced differently across the two, and checks whether the gap survives fees and gas before acting. Paper mode by default; live trading is opt-in and hedged.",
       "technologies": [
-        "Next.js 16",
-        "React",
         "TypeScript",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Nest.js",
-        "FastAPI",
-        "Axios",
+        "Node.js",
+        "Express.js",
         "WebSocket",
-        "Redis",
-        "Cloudinary",
-        "React Flow",
-        "PDF.js"
+        "Kalshi API",
+        "Polymarket API",
+        "Docker",
+        "PM2",
+        "Winston"
       ],
       "achievements": [
-        "Built the Growth Genie web app with idea validation, AI-powered success scores, persona-based analysis, and hypothesis testing with visual analytics",
-        "Implemented authentication, dashboard insights, knowledge base, Cloudinary-backed uploads, PDF-to-image handling, and speech-driven input",
-        "Contributed to the NestJS backend API and FastAPI services for execution flows and resume submission features integrated from the web client",
-        "Implemented Redis-backed real-time status for expert personas (working/idle) and pushed updates to the UI via WebSocket, alongside structured NestJS and FastAPI layers"
+        "Arbitrage detection and execution engine over Kalshi and Polymarket APIs using fee- and gas-aware net-edge calculations",
+        "Market normalization across two prediction platforms with dynamic execution intervals and structured Winston logging",
+        "Paper-trading simulator with P&L tracking plus a live hedged execution mode with built-in safety controls",
+        "Real-time WebSocket dashboard for cycle monitoring, trade history, and live status updates"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Customer Order Pickup Dashboard for WynShop",
-      "description": "Developed a comprehensive dashboard for WynShop (now owned by Instacart), an eCommerce platform providing services to large stores in the USA, enabling store managers and staff to efficiently handle customer orders.",
+      "title": "SMS-Auto — Community Weft",
+      "description": "A Next.js app for SMS-based community subscriptions — Stripe checkout and webhooks on one side, Bird.com inbound-SMS automation on the other, with Airtable holding the subscriber records.",
+      "technologies": [
+        "Next.js 14",
+        "TypeScript",
+        "Stripe API",
+        "Bird.com API",
+        "Airtable",
+        "Vercel"
+      ],
+      "achievements": [
+        "Stripe checkout and webhook integration for subscriptions and one-time payments",
+        "Keyword-based subscriber flows (LOVE/UNSUB/STOP) with Airtable-backed persistence and tier management",
+        "Automated monthly care-message delivery and post-payment welcome sequences"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Growth Genie — Growth Platform",
+      "description": "A Next.js App Router product for AI-assisted idea validation and scoring, with dashboards, a knowledge base, and file uploads — backed by NestJS and FastAPI services and Redis-driven real-time status.",
+      "technologies": [
+        "Next.js 16",
+        "NestJS",
+        "FastAPI",
+        "Redis",
+        "WebSocket",
+        "Cloudinary",
+        "React Flow"
+      ],
+      "achievements": [
+        "Next.js App Router client for AI-assisted idea validation, success scoring, dashboards, knowledge base, and Cloudinary uploads",
+        "Redis-backed real-time persona status (working/idle), broadcast to the UI over WebSocket",
+        "Contributed to NestJS backend APIs and FastAPI services powering execution and resume-submission workflows"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Order Pickup Dashboard — WynShop",
+      "description": "A dashboard that lets store managers and staff run customer pickup orders for a US eCommerce platform (WynShop, later acquired by Instacart), with real-time notifications and license-based age verification.",
       "technologies": [
         "React PWA",
         "Redux Toolkit",
-        "Redux Thunk",
         "Next.js",
         "Node.js",
         "GraphQL",
@@ -242,17 +215,16 @@
         "MongoDB"
       ],
       "achievements": [
-        "Integrated real-time order notifications and barcode scanner to verify age by USA driving licence",
-        "Implemented order tracking to ensure smooth fulfillment and customer satisfaction",
-        "Integrated Twilio for SMS and email notifications to keep customers and store staff updated",
-        "Data management handled using MongoDB for scalability and performance"
+        "Dashboard for store managers and staff to manage customer pickup orders",
+        "Real-time order notifications and barcode-based age verification via US driver's licenses",
+        "Order tracking and Twilio SMS/email notifications for customers and staff, with MongoDB for scalable order data"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
       "title": "QualityShopMarketplace",
-      "description": "Developed the front end for a DTC platform focused on healthy food and drink brands.",
+      "description": "The frontend for a direct-to-consumer marketplace focused on healthy food and drink brands, pulling product data from .NET Core APIs and using the OpenAI API to classify health-conscious products.",
       "technologies": [
         "Next.js",
         "Redux Toolkit",
@@ -261,134 +233,120 @@
         "REST APIs"
       ],
       "achievements": [
-        "Integrated APIs developed in .NET Core to display business data and product listings",
-        "Used OpenAI API on the front end to detect and classify health-conscious products",
-        "Built clean, responsive UI components using Next.js and Tailwind CSS",
-        "Collaborated with backend and data teams to ensure smooth flow of filtered data from 2.5M+ Shopify stores"
+        "Frontend for a DTC marketplace focused on healthy food and drink brands, integrating .NET Core backend APIs",
+        "Used the OpenAI API client-side to detect and classify health-conscious products",
+        "Surfaced filtered product data sourced from 2.5M+ Shopify stores, working with backend and data teams"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Contract Management System by Blitzy",
-      "description": "Worked on the front end of an AI-powered contract management system to improve stability and user experience.",
+      "title": "Contract Management System — Blitzy",
+      "description": "Stability and UX work on an AI-powered contract management system — debugging major UI issues and re-engineering the Vue/Quasar frontend to match updated .NET backend logic.",
       "technologies": [
         "Vue.js",
-        "Quasar framework",
+        "Quasar",
         "Pinia",
         "Tailwind CSS",
         "REST APIs"
       ],
       "achievements": [
-        "Collaborated with the team to debug and fix major UI and configuration issues affecting usability",
-        "Re-engineered front-end components using Vue.js, Pinia and Quasar to align with updated backend logic",
-        "Ensured smooth integration with .NET-based APIs and improved responsiveness across devices",
-        "Contributed to overall performance optimization and UI consistency in a complex enterprise environment"
+        "Improved stability and UX by debugging major UI and configuration issues",
+        "Re-engineered frontend components with Vue.js, Pinia, and Quasar to align with updated .NET backend logic",
+        "Contributed to performance optimization and UI consistency across a complex enterprise app"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "E-Commerce Website with Next.js, Nest.js, and MySQL",
-      "description": "Built a full-featured e-commerce website using Next.js for the frontend, Nest.js for the backend, and MySQL as the database.",
+      "title": "E-Commerce Platform",
+      "description": "A full-featured e-commerce site — Next.js frontend, NestJS backend, MySQL via Sequelize, with GraphQL for data fetching and the usual cart, auth, orders and payments.",
       "technologies": [
         "Next.js",
-        "Nest.js",
+        "NestJS",
         "GraphQL",
         "Redux Toolkit",
-        "Tailwind CSS",
-        "Sequelize ORM",
+        "Sequelize",
         "MySQL"
       ],
       "achievements": [
-        "Implemented efficient state management using Redux Toolkit to manage user data, cart information, and product details",
-        "Integrated GraphQL for streamlined and optimized data fetching between the frontend and backend",
-        "Designed and developed the frontend with a modern and responsive user interface powered by Tailwind CSS",
-        "Utilized Sequelize ORM for MySQL database interaction, ensuring smooth data handling and optimization",
-        "Implemented user authentication, order management, and payment systems"
+        "Next.js frontend, NestJS backend, and MySQL via Sequelize ORM",
+        "Redux Toolkit for cart, user, and product state, with GraphQL for optimized data fetching",
+        "User authentication, order management, and payment processing"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
       "title": "Company Portfolio Website",
-      "description": "Designed and developed a company portfolio website to showcase the company's expertise, services, team, and projects.",
+      "description": "An SEO-focused company site — Next.js frontend over a Node/Express backend, with SQL Server via TypeORM for dynamic content and Passport.js for auth.",
       "technologies": [
+        "Next.js",
         "Node.js",
         "Express.js",
-        "Next.js",
-        "React Hook Form",
         "SQL Server",
         "TypeORM",
-        "Passport.js",
-        "Redux"
+        "Passport.js"
       ],
       "achievements": [
-        "Built the frontend using Next.js to ensure SEO optimization and fast page loading times",
-        "Integrated TypeORM with SQL Server for backend data handling and dynamic content management",
-        "Implemented user authentication with Passport.js and secured APIs for seamless access to portfolio data",
-        "Used React Hook Form for form management, allowing potential clients to request more information",
-        "Made the website fully responsive with Tailwind CSS, ensuring smooth user experience across all devices"
+        "SEO-optimized Next.js frontend showcasing services, team, and projects over a Node/Express backend",
+        "TypeORM with SQL Server for dynamic content management and Passport.js for secure authentication",
+        "Contact/inquiry forms with React Hook Form, fully responsive with Tailwind CSS"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Pakistan Petrol Price Mobile App - Backend API",
-      "description": "Developed the backend API for the Pakistan Petrol Price mobile application, which has garnered over 300K downloads.",
+      "title": "Pakistan Petrol Price App — Backend (300K+ downloads)",
+      "description": "The backend for a mobile app with 300K+ downloads — a LoopBack 4 API serving live petrol prices, kept current with Puppeteer scraping, plus Google Maps for nearby stations.",
       "technologies": [
         "LoopBack 4",
         "Node.js",
         "TypeScript",
         "Puppeteer",
-        "Google Maps API",
-        "Authentication"
+        "Google Maps API"
       ],
       "achievements": [
-        "Used LoopBack 4 to create a secure and scalable API that serves real-time petrol price data to mobile clients",
-        "Integrated Puppeteer for scraping data on petrol prices from external sources for up-to-date information",
-        "Incorporated Google Maps API to help users find nearby petrol stations and calculate fuel efficiency",
-        "Added user authentication for data security and personalized features like trip tracking and service reminders"
+        "Secure, scalable LoopBack 4 API serving real-time petrol price data to a 300K+ download app",
+        "Puppeteer scraping to keep petrol price data current from external sources",
+        "Google Maps integration for nearby station discovery and fuel-efficiency calculations, with full user auth"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Pakistani Brands Mobile App Backend",
-      "description": "Built the backend for the Pakistani Brands Mobile App, which aggregates data from 50+ top Pakistani apparel websites.",
+      "title": "Pakistani Brands App — Aggregation Backend",
+      "description": "A backend that aggregates product data from 50+ Pakistani apparel sites with Puppeteer scraping, stores it in SQL Server, and pushes sale and new-product alerts via OneSignal.",
       "technologies": [
         "LoopBack 4",
         "Node.js",
         "TypeScript",
         "Puppeteer",
         "SQL Server",
-        "OneSignal API"
+        "OneSignal"
       ],
       "achievements": [
-        "Used Puppeteer for web scraping to extract product details from various brand websites",
-        "Integrated OneSignal to send push notifications to users about sales and new products",
-        "Stored and managed data in SQL Server using Sequelize ORM for smooth data retrieval",
-        "Built a secure API with LoopBack 4 and TypeScript for managing user interactions and product listings"
+        "Aggregates product data from 50+ Pakistani apparel websites via Puppeteer-based scraping",
+        "OneSignal push notifications for sales and new products, with SQL Server/Sequelize for storage",
+        "Secure LoopBack 4 + TypeScript API for user interactions and product listings"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
     },
     {
-      "title": "Currency Converter App Backend",
-      "description": "Developed the backend for a Currency Converter App, supporting real-time currency conversion for 20 countries.",
+      "title": "Currency Converter App — Backend",
+      "description": "A Node/Express backend for real-time currency conversion across 20 countries, with daily gold-price updates for major Pakistani cities and OneSignal alerts on rate changes.",
       "technologies": [
         "Node.js",
         "Express.js",
         "MongoDB",
-        "OneSignal API",
+        "OneSignal",
         "Passport.js"
       ],
       "achievements": [
-        "Integrated with external APIs to fetch live exchange rates of top currencies",
-        "Added daily updates for gold prices in major Pakistani cities for comprehensive financial data",
-        "Used Express.js to build RESTful APIs for currency conversion",
-        "Implemented OneSignal for sending push notifications about currency and gold price updates",
-        "Implemented secure user authentication with Passport.js for personalized services"
+        "Real-time currency conversion across 20 countries via external exchange-rate APIs",
+        "Daily gold price updates for major Pakistani cities and OneSignal push notifications for rate changes",
+        "Secure user authentication with Passport.js for personalized services"
       ],
       "demoUrl": "#",
       "githubUrl": "#"
@@ -400,219 +358,5 @@
       "institution": "BZU, Multan",
       "duration": "2015 - 2019"
     }
-  ],
-  "blogs": [
-    {
-      "slug": "nestjs-postgres-prisma-production",
-      "featured": true,
-      "category": "Backend Architecture",
-      "title": "Production-Grade APIs with NestJS, PostgreSQL & Prisma",
-      "readMinutes": 9,
-      "excerpt": "How I structure modules, migrations, and transactional boundaries when shipping SaaS backends that need predictable behavior under load.",
-      "tags": ["Nest.js", "PostgreSQL", "Prisma ORM", "TypeScript"],
-      "takeaways": [
-        "Domain-oriented modules beat “technical layer” folders when products evolve weekly",
-        "Treat Prisma migrations as the contract between services and BI tooling",
-        "Model side-effects (webhooks, queues) as explicit steps out of the request path"
-      ],
-      "paragraphs": [
-        "When you are shipping billing, alerts, and automation in one codebase, the dominant risk is not peak RPS—it is ambiguity about who owns a workflow. I start by naming bounded contexts (subscriptions, messaging, integrations) and keep providers thin so tests stay honest.",
-                "PostgreSQL gives you the constraints you need for money-moving paths; Prisma makes the schema legible to the whole team. I default to explicit transactions for anything that touches balances, tiers, or ledger-like tables, and I document failure modes beside the use-case—not in a wiki nobody opens.",
-                "The “premium” feel for API consumers is consistency: predictable error shapes, idempotent handlers, and observability that answers why a webhook retry happened. That trio costs little upfront and pays for itself the first night you debug production."
-      ]
-    },
-    {
-      "slug": "nextjs-react-performance-patterns",
-      "featured": false,
-      "category": "Frontend Craft",
-      "title": "Next.js & React Patterns for Interfaces That Feel Instant",
-      "readMinutes": 7,
-      "excerpt": "Streaming, server-first data, and client islands—how I keep dashboards and marketing surfaces fast without sacrificing interactivity.",
-      "tags": ["Next.js", "React", "Tailwind CSS", "React Query"],
-      "takeaways": [
-        "Fetch on the server when the UI is mostly read-only; hydrate only the interactive islands",
-        "Co-locate loading and error UI so perceived performance wins even when networks wobble",
-        "Let React Query own cache policy for anything that mutates in real time"
-      ],
-      "paragraphs": [
-        "Users judge quality in milliseconds. I reach for App Router layouts when the page shell is stable but the inner widgets need motion, forms, or charts—Framer Motion and React Flow stay on the client while the document frame stays lean.",
-                "Tailwind is not just styling speed; it is a shared vocabulary with design. Pair it with small component primitives (inputs, tables, dialogs) and you avoid the “custom CSS sprawl” that makes premium products feel cheap over time.",
-                "The finishing touches—focus rings, reduced-motion respect, and intentional empty states—are what separate a demo from a product people trust."
-      ]
-    },
-    {
-      "slug": "websockets-redis-realtime",
-      "featured": false,
-      "category": "Real-Time Systems",
-      "title": "WebSockets, Redis & Backpressure in Live Dashboards",
-      "readMinutes": 8,
-      "excerpt": "Patterns for persona status, bot telemetry, and trading-adjacent UIs where stale data is worse than no data.",
-      "tags": ["WebSocket", "Redis", "Node.js", "Winston"],
-      "takeaways": [
-        "Separate transport (socket) from domain events so you can swap brokers later",
-        "Use Redis as a fast source of truth for presence, not as your primary ledger",
-        "Log structured cycles—your future self is debugging at 2am, not admiring architecture diagrams"
-      ],
-      "paragraphs": [
-        "Live interfaces need a story for fan-out: who listens, what they are allowed to see, and how you degrade when a client falls behind. I like Redis-backed presence for short-lived flags and a clear TTL story.",
-                "Backpressure is the hidden premium feature. If you push firehoses to browsers, you will thrash layouts and batteries. Batch, throttle, and surface “catching up” states with the same care as loading spinners.",
-                "Pair operational logs (Winston) with user-visible timelines so support and engineering share one narrative when something misbehaves."
-      ]
-    },
-    {
-      "slug": "stripe-webhooks-idempotency",
-      "featured": false,
-      "category": "Payments & Integrations",
-      "title": "Stripe Webhooks, Idempotency Keys & Safe Subscription Flows",
-      "readMinutes": 6,
-      "excerpt": "Lessons from SMS-based acquisition flows—making payments feel boring in the best way.",
-      "tags": ["Stripe API", "Next.js", "TypeScript", "Webhooks"],
-      "takeaways": [
-        "Treat every webhook as at-least-once delivery—keys and deduplication tables are non-negotiable",
-        "Persist Stripe customer ↔ user mapping early; retro-matching is painful",
-        "Test failure replay as aggressively as happy paths"
-      ],
-      "paragraphs": [
-        "Payments are trust interfaces. A premium checkout is not flashy animation—it is correct receipts, predictable proration behavior, and support teams that can explain state in one glance.",
-                "I store webhook envelopes with status, attempt counts, and correlation IDs. Debugging becomes reading a story instead of guessing race conditions.",
-                "When SMS or messaging is in the loop, time ordering gets weird. Idempotency and explicit state machines for keywords like STOP/LOVE/UNSUB keep you compliant and calm."
-      ]
-    },
-    {
-      "slug": "graphql-integration-prisma",
-      "featured": false,
-      "category": "API Design",
-      "title": "GraphQL in the Wild with Prisma, NestJS & Product Dashboards",
-      "readMinutes": 7,
-      "excerpt": "When GraphQL wins, how I avoid N+1 nightmares, and where I still default to REST.",
-      "tags": ["GraphQL", "Nest.js", "Prisma ORM", "React"],
-      "takeaways": [
-        "Batch loaders belong in the architecture from day one—not static import({}) tricks",
-        "Model errors so mobile and web clients can branch without string matching",
-        "Reach for REST for binaries, caching-unfriendly payloads, and third-party callbacks"
-      ],
-      "paragraphs": [
-        "GraphQL shines when product teams iterate on screens faster than endpoints can multiply. The cost is discipline: schemas, permissions, and performance budgets must be first-class.",
-                "Prisma’s query planner is good, but GraphQL resolvers can still amplify chatter. DataLoader-style batching is the difference between slick UX and mysteriously slow grids.",
-                "Premium API surfaces expose introspection thoughtfully in dev, harden in prod, and document the “why” next to every expensive field."
-      ]
-    },
-    {
-      "slug": "docker-pm2-node-deployments",
-      "featured": false,
-      "category": "Platform & Reliability",
-      "title": "Docker, PM2 & Practical Node Deployments That Stay Boring",
-      "readMinutes": 6,
-      "excerpt": "Checklists for bots, workers, and APIs—where immutability meets operational comfort.",
-      "tags": ["Docker", "PM2", "Node.js", "Nginx"],
-      "takeaways": [
-        "One artifact per release—configure via env, not secret commits",
-        "Health checks should validate dependencies, not just `200 OK` on `/`",
-        "Use PM2 or orchestrators for restart policy; hope is not a supervision strategy"
-      ],
-      "paragraphs": [
-        "Shipping trading-adjacent or messaging-heavy services means processes will crash, deploys will overlap, and disks will fill. Container images plus explicit process managers turn chaos into playbooks.",
-                "Nginx fronts TLS and static egress concerns; Node focuses on business logic. Premium operations means rotations, logging sinks, and dashboards that show saturation before users notice.",
-                "The goal is unexciting on-call: predictable rollbacks, obvious config diffs, and alerts that fire on symptoms—not ego metrics."
-      ]
-    }
-  ],
-  "learningHub": {
-    "headline": "Learning space",
-    "subhead": "Curated tracks grounded in the same stack I ship with—full-stack TypeScript, resilient APIs, realtime dashboards, and cloud-native delivery.",
-    "tracks": [
-      {
-        "id": "product-fullstack",
-        "title": "Product-grade full-stack",
-        "summary": "End-to-end delivery from Next.js surfaces to NestJS services and PostgreSQL.",
-        "accent": "#1e40af",
-        "steps": [
-          {
-            "title": "Type-safe contracts first",
-            "detail": "Align Zod/DTO layers with OpenAPI or generated clients so your UI and API evolve together.",
-            "skills": ["Typescript", "React", "Nest.js"]
-          },
-          {
-            "title": "Auth as a product feature",
-            "detail": "Map sessions, OAuth2 flows, and webhook identities to explicit user states—not implicit flags.",
-            "skills": ["Passport.js", "Auth2.0", "Firebase"]
-          },
-          {
-            "title": "Ship vertical slices",
-            "detail": "Prefer user stories that touch UI, API, and persistence over horizontal “frontend week” milestones.",
-            "skills": ["Next.js", "GraphQL", "Prisma ORM"]
-          }
-        ]
-      },
-      {
-        "id": "frontend-excellence",
-        "title": "Frontend excellence",
-        "summary": "Interfaces that feel premium: motion, accessibility, and data discipline.",
-        "accent": "#2563eb",
-        "steps": [
-          {
-            "title": "Design systems in Tailwind",
-            "detail": "Tokens, spacing rhythm, and component recipes keep React trees consistent at scale.",
-            "skills": ["Tailwind CSS", "React", "Framer Motion"]
-          },
-          {
-            "title": "State with intent",
-            "detail": "Redux Toolkit for app-wide workflows; React Query for remote cache; Context for scoped toggles only.",
-            "skills": ["Redux Toolkit", "React Query", "Context API"]
-          },
-          {
-            "title": "Complex viz without jank",
-            "detail": "Isolate charts and graphs (Chart.js, React Flow) behind memoized shells with stable data snapshots.",
-            "skills": ["Chart.js", "React Flow", "PrimeReact"]
-          }
-        ]
-      },
-      {
-        "id": "backend-platform",
-        "title": "Backend & platform",
-        "summary": "Messaging, integrations, and observability for serious traffic.",
-        "accent": "#0d9488",
-        "steps": [
-          {
-            "title": "Integrations that recover",
-            "detail": "Twilio, Stripe, and MessageBird demand retries, idempotency, and dead-letter clarity.",
-            "skills": ["Twilio", "Stripe API", "MessageBird"]
-          },
-          {
-            "title": "Postgres as the system of record",
-            "detail": "Use constraints and migrations boldly; let caches (Redis) be accelerators—not sources of truth.",
-            "skills": ["PostgreSQL", "Redis", "Sequelize ORM"]
-          },
-          {
-            "title": "Serverless glue with guardrails",
-            "detail": "Google Cloud Functions for focused jobs; keep shared libraries versioned and tested locally first.",
-            "skills": ["Google Cloud Functions", "Docker", "Winston"]
-          }
-        ]
-      },
-      {
-        "id": "ai-automation",
-        "title": "AI-assisted automation",
-        "summary": "When to blend Azure OpenAI, Microsoft Graph, and FastAPI for operational wins.",
-        "accent": "#059669",
-        "steps": [
-          {
-            "title": "Inbox-to-action pipelines",
-            "detail": "Graph API ingestion, attachment routing, and human-in-the-loop review for regulated content.",
-            "skills": ["Microsoft Graph API", "Azure OpenAI", "FastAPI"]
-          },
-          {
-            "title": "Confidence-aware matching",
-            "detail": "Layer exact, fuzzy, and model-based strategies with explicit thresholds and audit trails.",
-            "skills": ["Python", "SQL Server", "PDF.js"]
-          },
-          {
-            "title": "Operational UX for agents",
-            "detail": "Admin panels with history, rollback, and settings snapshots keep AI features maintainable.",
-            "skills": ["FastAPI", "Nest.js", "React"]
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }

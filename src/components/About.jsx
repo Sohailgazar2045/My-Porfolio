@@ -35,16 +35,16 @@ const AnimatedCounter = ({ target, suffix = '' }) => {
 const About = () => {
   const stats = [
     { icon: <HiBriefcase />, number: '3', suffix: '+', label: 'Years Experience' },
-    { icon: <HiCode />, number: '20', suffix: '+', label: 'Projects Delivered' },
+    { icon: <HiCode />, number: '20', suffix: '+', label: 'Projects shipped' },
     { icon: <HiChip />, number: '15', suffix: '+', label: 'Technologies' },
     { icon: <HiLightningBolt />, number: '300', suffix: 'K+', label: 'App Downloads' },
   ];
 
   const highlights = [
-    'Building scalable SaaS products & trading bots',
-    'Expert in React, Next.js, Node.js & NestJS ecosystems',
-    'Experience with payment integrations (Stripe, Braintree)',
-    'Strong focus on clean architecture & code quality',
+    'Comfortable across the stack — React/Next.js on the front, Node/NestJS/FastAPI on the back',
+    'Lately focused on automation: AI pipelines (Azure OpenAI, FastAPI) and a TypeScript trading bot',
+    'Shipped payments and messaging integrations (Stripe, Twilio, MessageBird)',
+    'Care more about code that survives a year than code that demos well',
   ];
 
   const containerVariants = staggerContainer(0.1, 0.15);
@@ -61,7 +61,7 @@ const About = () => {
           className="about__header"
         >
           <span className="section-label">About Me</span>
-          <h2 className="section-title">Passionate About Building<br />Digital Experiences</h2>
+          <h2 className="section-title">A bit about<br />how I work</h2>
           <p className="section-subtitle">
             {data.summary}
           </p>
@@ -76,7 +76,7 @@ const About = () => {
           viewport={{ once: true, margin: '-100px' }}
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} className="about__stat-card glow-card" variants={itemVariants}>
+            <motion.div key={index} className="about__stat-card" variants={itemVariants}>
               <div className="about__stat-icon">{stat.icon}</div>
               <div className="about__stat-number">
                 <AnimatedCounter target={stat.number} suffix={stat.suffix} />

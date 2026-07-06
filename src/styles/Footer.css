@@ -1,12 +1,11 @@
 /* ========================================
-   FOOTER — Premium
+   FOOTER — warm, quiet
    ======================================== */
 .footer {
-  padding: 5rem 0 2.25rem;
+  padding: 4.5rem 0 2.25rem;
   position: relative;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37, 99, 235, 0.07), transparent 55%),
-    linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 40%);
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer__content {
@@ -18,59 +17,54 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.footer__brand { max-width: 300px; }
+.footer__brand { max-width: 320px; }
 
 .footer__logo {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
 }
 
-.footer__logo-dot {
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.footer__logo-dot { color: var(--color-primary); }
 
 .footer__tagline {
   margin-top: 0.75rem;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--color-text-secondary);
   line-height: 1.65;
 }
 
 .footer__nav-title {
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.76rem;
+  font-weight: 600;
   color: var(--color-text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.15rem;
 }
 
 .footer__nav-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .footer__nav-link {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--color-text-secondary);
-  transition: all var(--transition-base);
+  transition: color var(--transition-base), transform var(--transition-base);
   display: inline-block;
 }
 
 .footer__nav-link:hover {
-  color: var(--color-primary-light);
-  transform: translateX(4px);
+  color: var(--color-primary);
+  transform: translateX(3px);
 }
 
 .footer__socials {
@@ -87,22 +81,21 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
-  transition: all var(--transition-base);
+  background: var(--color-bg-card);
+  transition: color var(--transition-base), border-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 .footer__social-link:hover {
-  color: var(--color-primary-light);
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(59, 130, 246, 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.12);
+  color: var(--color-primary);
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
 }
 
 .footer__divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), var(--color-primary-light), var(--color-border), transparent);
+  background: var(--color-border);
   margin-bottom: 1.5rem;
-  opacity: 0.5;
 }
 
 .footer__bottom {
@@ -111,7 +104,8 @@
   align-items: center;
 }
 
-.footer__copyright {
+.footer__copyright,
+.footer__made-with {
   font-size: 0.85rem;
   color: var(--color-text-tertiary);
 }
@@ -120,24 +114,15 @@
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.85rem;
-  color: var(--color-text-tertiary);
 }
 
 .footer__heart {
-  color: #ef4444;
+  color: var(--color-primary);
   font-size: 0.75rem;
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
 }
 
 @media (max-width: 768px) {
-  .footer__top { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .footer__top { grid-template-columns: 1fr; gap: 2rem; }
   .footer__brand { max-width: none; }
-  .footer__socials { justify-content: center; }
   .footer__bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
 }

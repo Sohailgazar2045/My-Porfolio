@@ -17,9 +17,8 @@ const Footer = () => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Insights', href: '#insights' },
-    { label: 'Learn', href: '#learn' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Work', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -34,7 +33,7 @@ const Footer = () => {
                 MS<span className="footer__logo-dot">.</span>
               </span>
               <p className="footer__tagline">
-                Building digital experiences that make an impact.
+                Full-stack developer based in Lahore, Pakistan.
               </p>
             </div>
 

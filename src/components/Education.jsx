@@ -18,9 +18,9 @@ const Education = () => {
           className="education__header"
         >
           <span className="section-label">Education</span>
-          <h2 className="section-title">Academic Background</h2>
+          <h2 className="section-title">Where I studied</h2>
           <p className="section-subtitle">
-            The foundation that shaped my technical journey
+            My formal background — most of the day-to-day I picked up on the job.
           </p>
         </motion.div>
 

@@ -6,8 +6,8 @@
 }
 
 .contact__header {
-  text-align: center;
-  margin-bottom: 4.5rem;
+  text-align: left;
+  margin-bottom: 3.25rem;
 }
 
 .contact__grid {
@@ -27,10 +27,10 @@
 .contact__info-intro h3 {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .contact__info-intro p {
@@ -57,9 +57,9 @@
 }
 
 .contact__info-item:hover {
-  border-color: rgba(59, 130, 246, 0.28);
-  transform: translateX(5px);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .contact__info-icon {
@@ -69,9 +69,9 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  color: var(--color-primary-light);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
   font-size: 1.1rem;
   flex-shrink: 0;
 }
@@ -97,7 +97,7 @@
 }
 
 a.contact__info-value:hover {
-  color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .contact__socials {
@@ -118,11 +118,11 @@ a.contact__info-value:hover {
 }
 
 .contact__social-link:hover {
-  color: var(--color-primary-light);
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(59, 130, 246, 0.1);
+  color: var(--color-primary);
+  border-color: var(--color-border-hover);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  box-shadow: var(--shadow-md);
 }
 
 .contact__form {
@@ -144,7 +144,7 @@ a.contact__info-value:hover {
 .contact__input {
   width: 100%;
   padding: 0.88rem 1rem;
-  background: rgba(148, 163, 184, 0.05);
+  background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-text-primary);
@@ -160,7 +160,7 @@ a.contact__info-value:hover {
 
 .contact__input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12), 0 0 24px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
 }
 
 .contact__textarea {
