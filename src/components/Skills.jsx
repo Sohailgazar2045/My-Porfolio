@@ -13,16 +13,16 @@ import { getSkillIcon } from '../lib/skillIcons';
 import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Skills.css';
 
-// One champagne-gold family, shifted subtly per category so each
-// card's rail reads as its own without breaking the restraint.
+// Acid-lime and muted-steel alternating per category — the card
+// rails read like channels on an instrument panel, not a rainbow.
 const CATEGORY_META = {
-  languages: { icon: <HiCode />, label: 'Languages', color: '#d8bf9a' },
-  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#c5a880' },
-  backend: { icon: <HiServer />, label: 'Backend', color: '#b39268' },
-  databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#a88a63' },
-  cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#9a938a' },
-  integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#cdb185' },
-  other: { icon: <HiCog />, label: 'Other', color: '#bfa377' },
+  languages: { icon: <HiCode />, label: 'Languages', color: '#ccff00' },
+  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#a6d000' },
+  backend: { icon: <HiServer />, label: 'Backend', color: '#64748b' },
+  databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#475569' },
+  cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#94a3b8' },
+  integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#dbff4d' },
+  other: { icon: <HiCog />, label: 'Other', color: '#7c8ba0' },
 };
 
 const Skills = () => {
@@ -59,7 +59,7 @@ const Skills = () => {
           viewport={{ once: true, margin: '-50px' }}
         >
           {Object.entries(skills).map(([category, items]) => {
-            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#c5a880' };
+            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#ccff00' };
             return (
               <motion.div
                 key={category}

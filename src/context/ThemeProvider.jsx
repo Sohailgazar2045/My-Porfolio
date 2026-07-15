@@ -9,7 +9,9 @@ function getStoredTheme() {
   } catch {
     /* ignore */
   }
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  // Dark is the identity — default to it regardless of OS preference;
+  // only an explicit toggle choice (stored above) overrides.
+  return 'dark';
 }
 
 export function ThemeProvider({ children }) {
@@ -26,7 +28,7 @@ export function ThemeProvider({ children }) {
 
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      meta.setAttribute('content', theme === 'light' ? '#f4f1ec' : '#121212');
+      meta.setAttribute('content', theme === 'light' ? '#f1f5f9' : '#0b0f19');
     }
   }, [theme]);
 

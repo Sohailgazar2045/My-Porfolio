@@ -1,55 +1,56 @@
 /* ========================================
-   DESIGN SYSTEM — Quiet Luxury
-   Matte obsidian, graphite cards, alabaster
-   text, one champagne-gold accent used with
-   restraint — for borders, active states and
-   buttons. Spacious, high-end, no loud glow.
-   Dark is the identity (below); this :root is
-   its refined porcelain daylight counterpart.
+   DESIGN SYSTEM — Cyber-Industrial Monospace
+   Deep ink blue-black surfaces, bright-silver
+   structure, one acid-lime accent and a muted
+   steel secondary. High-contrast, precision-
+   engineered, tech-forward. Monospace display +
+   technical label layer over a clean sans body.
+   Dark is the identity (below); this :root is a
+   clean "blueprint" daylight counterpart.
    ======================================== */
 :root {
   color-scheme: light;
 
-  /* champagne gold — the one accent (bronzed for light contrast) */
-  --color-primary: #a6844e;
-  --color-primary-light: #c5a880;
-  --color-primary-dark: #866636;
+  /* acid lime — the primary accent (deepened for light-mode contrast) */
+  --color-primary: #6c8f00;
+  --color-primary-light: #86ab1f;
+  --color-primary-dark: #556f00;
 
-  --color-secondary: #6b655c;
-  --color-accent: #a6844e;      /* same gold — held to one accent */
-  --color-success: #6f8a68;
-  --color-warning: #b08a3e;
+  --color-secondary: #475569;   /* muted steel */
+  --color-accent: #64748b;      /* lighter steel — secondary accent */
+  --color-success: #4d7c0f;
+  --color-warning: #a16207;
 
-  /* porcelain surfaces */
-  --color-bg-primary: #f4f1ec;
-  --color-bg-secondary: #ece8e1;
-  --color-bg-tertiary: #e4dfd6;
-  --color-bg-card: #fbfaf7;
-  --color-bg-glass: rgba(244, 241, 236, 0.82);
+  /* cool blueprint surfaces */
+  --color-bg-primary: #f1f5f9;
+  --color-bg-secondary: #e8edf3;
+  --color-bg-tertiary: #dde3ea;
+  --color-bg-card: #ffffff;
+  --color-bg-glass: rgba(241, 245, 249, 0.82);
 
-  /* graphite ink */
-  --color-text-primary: #1b1a17;
-  --color-text-secondary: #5f5952;
-  --color-text-tertiary: #8e877c;
-  --color-text-accent: #866636;
+  /* ink-blue text */
+  --color-text-primary: #0b0f19;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748b;
+  --color-text-accent: #556f00;
 
-  --color-border: rgba(28, 26, 22, 0.12);
-  --color-border-strong: rgba(28, 26, 22, 0.2);
-  --color-border-hover: rgba(166, 132, 78, 0.55);
+  --color-border: rgba(11, 15, 25, 0.12);
+  --color-border-strong: rgba(11, 15, 25, 0.2);
+  --color-border-hover: rgba(108, 143, 0, 0.55);
 
-  --color-nav-hover-bg: rgba(166, 132, 78, 0.09);
-  --color-nav-active-bg: rgba(166, 132, 78, 0.14);
-  --color-overlay-scrim: rgba(24, 22, 18, 0.42);
-  --color-btn-secondary-hover-bg: rgba(166, 132, 78, 0.06);
-  --color-selection-bg: rgba(166, 132, 78, 0.22);
+  --color-nav-hover-bg: rgba(108, 143, 0, 0.09);
+  --color-nav-active-bg: rgba(108, 143, 0, 0.14);
+  --color-overlay-scrim: rgba(11, 15, 25, 0.45);
+  --color-btn-secondary-hover-bg: rgba(108, 143, 0, 0.06);
+  --color-selection-bg: rgba(108, 143, 0, 0.2);
 
   --font-primary: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-editorial: 'Fraunces', Georgia, serif;
-  --font-mono: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+  --font-display: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Consolas', monospace;
+  --font-editorial: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
 
-  /* dark obsidian ink — sits on gold buttons/plates in both themes */
-  --color-on-accent: #1a1712;
+  /* deep ink — sits on the acid-lime buttons/plates in both themes */
+  --color-on-accent: #0b0f19;
 
   --section-padding: 7rem 0;
   --container-max: 1180px;
@@ -73,41 +74,41 @@
 
   --card-hover-lift: translateY(-3px);
 
-  --shadow-sm: 0 1px 2px rgba(74, 52, 30, 0.06);
-  --shadow-md: 0 10px 26px -14px rgba(74, 52, 30, 0.28);
-  --shadow-lg: 0 22px 44px -22px rgba(74, 52, 30, 0.34);
-  --shadow-xl: 0 32px 60px -28px rgba(74, 52, 30, 0.4);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 10px 26px -14px rgba(15, 23, 42, 0.24);
+  --shadow-lg: 0 22px 44px -22px rgba(15, 23, 42, 0.3);
+  --shadow-xl: 0 32px 60px -28px rgba(15, 23, 42, 0.36);
 
   --transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 260ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 480ms cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* --- Premium layer: gradients, light, grain --- *
-   * One restrained champagne "signal" gradient for focal
-   * accents, plus barely-there ambient blooms that give the
-   * page depth without a loud glow — matte, not neon. */
-  --grad-signal: linear-gradient(135deg, #c5a880 0%, #a6844e 52%, #866636 100%);
+  /* --- Signal layer: gradients, light, grain --- *
+   * One acid-lime "signal" gradient for focal accents, plus
+   * low-opacity lime/steel blooms that read as engineered
+   * light rather than a wash — high-contrast, controlled. */
+  --grad-signal: linear-gradient(135deg, #86ab1f 0%, #6c8f00 52%, #556f00 100%);
   --grad-signal-soft: linear-gradient(120deg,
-    color-mix(in srgb, var(--color-primary) 90%, #d8bf9a),
+    color-mix(in srgb, var(--color-primary) 90%, #a6d000),
     var(--color-primary) 55%,
-    color-mix(in srgb, var(--color-primary) 82%, #6b655c));
-  --grad-ink: linear-gradient(180deg, #1b1a17, #3a352e);
+    color-mix(in srgb, var(--color-primary) 82%, #475569));
+  --grad-ink: linear-gradient(180deg, #0b0f19, #334155);
 
-  /* ambient blooms — champagne, very low opacity, hand-placed */
-  --bloom-1: rgba(166, 132, 78, 0.12);
-  --bloom-2: rgba(120, 116, 104, 0.10);
-  --bloom-3: rgba(197, 168, 128, 0.08);
+  /* ambient blooms — lime + steel, low opacity, hand-placed */
+  --bloom-1: rgba(108, 143, 0, 0.10);
+  --bloom-2: rgba(71, 85, 105, 0.14);
+  --bloom-3: rgba(100, 116, 139, 0.08);
   --grain-opacity: 0.03;
   --grain-blend: multiply;
 
-  /* cursor spotlight — barely-there champagne light that tracks the pointer */
-  --spotlight-color: rgba(166, 132, 78, 0.06);
+  /* cursor spotlight — barely-there lime light that tracks the pointer */
+  --spotlight-color: rgba(108, 143, 0, 0.06);
 
-  /* premium elevation for the few real cards that remain */
-  --shadow-float: 0 2px 4px rgba(74, 52, 30, 0.05),
-    0 14px 30px -18px rgba(74, 52, 30, 0.30),
-    0 40px 80px -50px rgba(74, 52, 30, 0.35);
+  /* elevation for the few real cards that remain */
+  --shadow-float: 0 2px 4px rgba(15, 23, 42, 0.06),
+    0 14px 30px -18px rgba(15, 23, 42, 0.26),
+    0 40px 80px -50px rgba(15, 23, 42, 0.3);
   --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 16%, transparent);
 }
 
@@ -116,43 +117,43 @@ html[data-theme='light'] {
   color-scheme: light;
 }
 
-/* ---- Quiet Luxury dark (the identity) ----
-   Matte obsidian page, graphite cards that lift a
-   clear step above it, alabaster text, and a single
-   champagne-gold accent held in reserve for borders,
-   active states and buttons. Deep matte shadows, no
-   neon bloom — restraint is the whole point. */
+/* ---- Cyber-Industrial dark (the identity) ----
+   Deep ink blue-black page, blue-graphite cards a
+   clear step above it, bright-silver structure, and
+   one acid-lime accent for borders, active states and
+   buttons — with a muted steel secondary. High
+   contrast; the lime carries a controlled glow. */
 html[data-theme='dark'] {
   color-scheme: dark;
 
-  --color-primary: #c5a880;        /* champagne gold */
-  --color-primary-light: #d8bf9a;
-  --color-primary-dark: #a88a63;
-  --color-secondary: #9a938a;
-  --color-accent: #c5a880;
-  --color-success: #8fa88b;
-  --color-warning: #cba75f;
+  --color-primary: #ccff00;        /* acid lime */
+  --color-primary-light: #dbff4d;
+  --color-primary-dark: #a6d000;
+  --color-secondary: #475569;      /* muted steel */
+  --color-accent: #64748b;         /* lighter steel — secondary accent */
+  --color-success: #ccff00;
+  --color-warning: #e2b714;
 
-  --color-bg-primary: #121212;     /* matte obsidian */
-  --color-bg-secondary: #0d0d0d;   /* deeper — the continuous canvas */
-  --color-bg-tertiary: #202020;
-  --color-bg-card: #1a1a1a;        /* graphite */
-  --color-bg-glass: rgba(18, 18, 18, 0.72);
+  --color-bg-primary: #0b0f19;     /* deep ink blue-black */
+  --color-bg-secondary: #070a12;   /* deeper — the continuous canvas */
+  --color-bg-tertiary: #1a2130;
+  --color-bg-card: #111725;        /* blue-graphite */
+  --color-bg-glass: rgba(11, 15, 25, 0.72);
 
-  --color-text-primary: #f5f5f7;   /* alabaster */
-  --color-text-secondary: #a7a29a;
-  --color-text-tertiary: #6e6a63;
-  --color-text-accent: #d8bf9a;
+  --color-text-primary: #e2e8f0;   /* bright silver */
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  --color-text-accent: #ccff00;
 
-  --color-border: rgba(245, 245, 247, 0.09);
-  --color-border-strong: rgba(245, 245, 247, 0.16);
-  --color-border-hover: rgba(197, 168, 128, 0.55);
+  --color-border: rgba(226, 232, 240, 0.1);
+  --color-border-strong: rgba(226, 232, 240, 0.18);
+  --color-border-hover: rgba(204, 255, 0, 0.55);
 
-  --color-nav-hover-bg: rgba(197, 168, 128, 0.08);
-  --color-nav-active-bg: rgba(197, 168, 128, 0.14);
-  --color-overlay-scrim: rgba(6, 6, 6, 0.8);
-  --color-btn-secondary-hover-bg: rgba(197, 168, 128, 0.07);
-  --color-selection-bg: rgba(197, 168, 128, 0.26);
+  --color-nav-hover-bg: rgba(204, 255, 0, 0.08);
+  --color-nav-active-bg: rgba(204, 255, 0, 0.14);
+  --color-overlay-scrim: rgba(3, 5, 10, 0.82);
+  --color-btn-secondary-hover-bg: rgba(204, 255, 0, 0.07);
+  --color-selection-bg: rgba(204, 255, 0, 0.26);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.55);
   --shadow-md: 0 14px 32px -16px rgba(0, 0, 0, 0.74);
@@ -162,21 +163,21 @@ html[data-theme='dark'] {
     0 18px 40px -20px rgba(0, 0, 0, 0.72),
     0 50px 90px -50px rgba(0, 0, 0, 0.88);
 
-  /* on obsidian, the champagne signal warms very slightly */
-  --grad-signal: linear-gradient(135deg, #d8bf9a 0%, #c5a880 50%, #a88a63 100%);
+  /* the acid-lime signal — a touch brighter on ink */
+  --grad-signal: linear-gradient(135deg, #dbff4d 0%, #ccff00 50%, #a6d000 100%);
   --grad-signal-soft: linear-gradient(120deg,
-    color-mix(in srgb, var(--color-primary) 92%, #e6d4b2),
+    color-mix(in srgb, var(--color-primary) 92%, #eaff8a),
     var(--color-primary) 55%,
-    color-mix(in srgb, var(--color-primary) 82%, #9a938a));
-  --grad-ink: linear-gradient(180deg, #f5f5f7, #a7a29a);
+    color-mix(in srgb, var(--color-primary) 78%, #475569));
+  --grad-ink: linear-gradient(180deg, #e2e8f0, #94a3b8);
 
-  --bloom-1: rgba(197, 168, 128, 0.10);
-  --bloom-2: rgba(154, 147, 138, 0.07);
-  --bloom-3: rgba(245, 245, 247, 0.04);
-  --grain-opacity: 0.045;
+  --bloom-1: rgba(204, 255, 0, 0.08);
+  --bloom-2: rgba(71, 85, 105, 0.18);
+  --bloom-3: rgba(226, 232, 240, 0.05);
+  --grain-opacity: 0.05;
   --grain-blend: overlay;
-  --spotlight-color: rgba(197, 168, 128, 0.06);
-  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 22%, transparent);
+  --spotlight-color: rgba(204, 255, 0, 0.06);
+  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 26%, transparent);
 }
 
 /* ========================================
@@ -401,12 +402,12 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--font-primary);
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
   color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   margin-bottom: 1.1rem;
 }
 
