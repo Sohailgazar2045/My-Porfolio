@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { HiCalendar, HiChevronDown } from 'react-icons/hi';
 import data from '../data.json';
 import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
@@ -16,6 +16,14 @@ const PREVIEW = 2;
 const Experience = () => {
   const { experience } = data;
   const [expanded, setExpanded] = useState(null);
+  const gridRef = useRef(null);
+
+  // Draw the timeline spine in as the section scrolls through view.
+  const { scrollYProgress } = useScroll({
+    target: gridRef,
+    offset: ['start 75%', 'end 55%'],
+  });
+  const spineScale = useSpring(scrollYProgress, { stiffness: 90, damping: 26, mass: 0.5 });
 
   const containerVariants = staggerContainer(0.1, 0.05);
   const cardVariants = fadeUpItem;
@@ -23,7 +31,8 @@ const Experience = () => {
   return (
     <section id="experience" className="experience">
       <div className="experience__ambient" aria-hidden />
-      <div className="container">
+      <div className="container experience__container">
+        <span className="section-mark" aria-hidden="true">E</span>
         <motion.div
           variants={fadeBlurUp}
           initial="hidden"
@@ -31,8 +40,8 @@ const Experience = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="experience__header"
         >
-          <span className="section-label">Experience</span>
-          <h2 className="section-title">Where I've worked</h2>
+          <span className="section-label section-label--glow">Experience</span>
+          <h2 className="section-title">Where I&apos;ve <span className="text-gradient">worked</span></h2>
           <p className="section-subtitle">
             Three roles over about three years. Expand any one to see what I
             actually worked on.
@@ -41,11 +50,17 @@ const Experience = () => {
 
         <motion.div
           className="experience__grid"
+          ref={gridRef}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
         >
+          <motion.span
+            className="experience__spine"
+            style={{ scaleY: spineScale }}
+            aria-hidden="true"
+          />
           {experience.map((exp, index) => {
             const isOpen = expanded === index;
             const hasMore = exp.responsibilities.length > PREVIEW;

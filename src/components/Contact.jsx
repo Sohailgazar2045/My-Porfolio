@@ -9,6 +9,7 @@ import {
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import data from '../data.json';
 import { fadeBlurUp, fadeSlideRight, fadeUpItem, staggerContainer } from '../lib/motion';
+import Magnetic from './Magnetic';
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -53,7 +54,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <div className="container">
+      <div className="container contact__container">
+        <span className="section-mark" aria-hidden="true">C</span>
         <motion.div
           variants={fadeBlurUp}
           initial="hidden"
@@ -61,11 +63,11 @@ const Contact = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="contact__header"
         >
-          <span className="section-label">Contact</span>
-          <h2 className="section-title">Get in touch</h2>
+          <span className="section-label section-label--glow">Contact</span>
+          <h2 className="section-title">Let&apos;s build something<br />that <span className="text-gradient">runs itself</span></h2>
           <p className="section-subtitle">
-            Whether it's a role, a project, or a question about something
-            I've built — my inbox is open.
+            Whether it&apos;s a role, a project, or a question about something
+            I&apos;ve built — my inbox is open.
           </p>
         </motion.div>
 
@@ -134,6 +136,7 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
           >
+            <span className="contact__form-glow" aria-hidden="true" />
             <div className="contact__form-group">
               <label htmlFor="name" className="contact__label">
                 Full Name
@@ -182,20 +185,22 @@ const Contact = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary contact__submit"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                'Sending...'
-              ) : (
-                <>
-                  Send Message
-                  <HiPaperAirplane className="btn-icon" />
-                </>
-              )}
-            </button>
+            <Magnetic strength={0.25} className="contact__submit-wrap">
+              <button
+                type="submit"
+                className="btn btn-primary contact__submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    Send Message
+                    <HiPaperAirplane className="btn-icon" />
+                  </>
+                )}
+              </button>
+            </Magnetic>
           </motion.form>
         </div>
       </div>

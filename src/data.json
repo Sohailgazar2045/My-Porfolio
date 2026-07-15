@@ -7,7 +7,7 @@
     "location": "Lahore, Pakistan",
     "linkedin": "https://www.linkedin.com/in/muhammad-sohail-1b07081bb",
     "github": "https://github.com/Sohailgazar2045",
-    "profileImage": "/sohail.jpeg",
+    "profileImage": "/sohail-hero.png",
     "resumeUrl": "/sohail-resume.pdf"
   },
   "summary": "I'm a full-stack developer based in Lahore, three years into building things across the JavaScript and TypeScript stack — React and Next.js on the front, Node, NestJS and FastAPI on the back, with SQL and NoSQL databases behind them. Lately my work has leaned toward automation: an AI-driven email pipeline on Azure OpenAI, a TypeScript trading bot wired into live market APIs over WebSocket, and SMS and payment flows that mostly run themselves. I like owning a feature the whole way — from the data model and system design through to deployment on Docker, AWS or Railway — and I care more about code that still makes sense in six months than code that demos well.",

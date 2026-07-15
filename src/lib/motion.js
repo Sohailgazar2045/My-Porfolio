@@ -50,3 +50,19 @@ export const fadeSlideRight = {
     transition: springSoft,
   },
 };
+
+/* --- Masked word/line reveal — the headline treatment.
+   Parent staggers children; each child rises out from under
+   an overflow:hidden clip for that "typeset in place" feel. */
+export const revealContainer = (stagger = 0.09, delay = 0.1) => ({
+  hidden: {},
+  visible: { transition: { staggerChildren: stagger, delayChildren: delay } },
+});
+
+export const revealLine = {
+  hidden: { y: '110%' },
+  visible: {
+    y: '0%',
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};

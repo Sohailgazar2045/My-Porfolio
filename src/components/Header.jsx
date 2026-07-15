@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../hooks/useTheme.js';
+import Magnetic from './Magnetic';
 import '../styles/Header.css';
 
 const NAV_ITEMS = [
@@ -60,14 +62,16 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
       <div className="header__container">
-        <button
-          className="header__logo"
-          onClick={() => scrollToSection('home')}
-          aria-label="Go to top"
-        >
-          <span className="header__logo-text">MS</span>
-          <span className="header__logo-dot"></span>
-        </button>
+        <Magnetic strength={0.4}>
+          <button
+            className="header__logo"
+            onClick={() => scrollToSection('home')}
+            aria-label="Go to top"
+          >
+            <span className="header__logo-text">MS</span>
+            <span className="header__logo-dot"></span>
+          </button>
+        </Magnetic>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__nav-list">
@@ -77,10 +81,14 @@ const Header = () => {
                   className={`header__nav-link ${activeSection === item.id ? 'header__nav-link--active' : ''}`}
                   onClick={() => scrollToSection(item.id)}
                 >
-                  {item.label}
                   {activeSection === item.id && (
-                    <span className="header__nav-indicator" />
+                    <motion.span
+                      className="header__nav-pill"
+                      layoutId="nav-pill"
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
                   )}
+                  <span className="header__nav-label">{item.label}</span>
                 </button>
               </li>
             ))}

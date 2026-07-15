@@ -8,7 +8,15 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Atmosphere from './components/Atmosphere';
+import Marquee from './components/Marquee';
 import './App.css';
+
+// A curated ticker of the stack — the signature tools, not the full list.
+const MARQUEE_ITEMS = [
+  'TypeScript', 'React', 'Next.js', 'Node.js', 'NestJS', 'FastAPI',
+  'PostgreSQL', 'GraphQL', 'Azure OpenAI', 'Docker', 'AWS', 'Stripe',
+];
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -26,6 +34,7 @@ function App() {
 
   return (
     <div className="App">
+      <Atmosphere />
       <div className="app-content">
         <div className="scroll-progress">
           <div
@@ -35,6 +44,9 @@ function App() {
         </div>
         <Header />
         <Hero />
+        <div className="marquee-band" aria-hidden="true">
+          <Marquee items={MARQUEE_ITEMS} speed={40} />
+        </div>
         <About />
         <Skills />
         <Experience />

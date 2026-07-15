@@ -5,13 +5,19 @@
   padding: var(--section-padding);
 }
 
+.education__container { position: relative; }
+
 .education__header {
+  position: relative;
+  z-index: 1;
   text-align: left;
   margin-bottom: 3.25rem;
 }
 
 .education__grid {
-  max-width: 720px;
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -19,26 +25,68 @@
 
 .education__card {
   display: flex;
-  align-items: flex-start;
-  gap: 1.4rem;
-  padding: 1.75rem;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem 2.25rem;
   position: relative;
+  overflow: hidden;
+}
+
+/* a faint gradient wash sweeping across the panel */
+.education__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+    color-mix(in srgb, var(--color-primary) 6%, transparent),
+    transparent 45%);
+  pointer-events: none;
 }
 
 .education__card-icon {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
-  color: var(--color-primary);
-  font-size: 1.4rem;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-lg);
+  background: var(--grad-signal);
+  color: #fff8f1;
+  font-size: 1.6rem;
   flex-shrink: 0;
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 248, 241, 0.25);
 }
 
-.education__card-content { flex: 1; }
+.education__card-content { position: relative; flex: 1; }
+
+.education__tag {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+/* oversized graduation year, ghosted into the panel's right side */
+.education__watermark {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-text-primary);
+  opacity: 0.05;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
 
 .education__degree {
   font-family: var(--font-display);

@@ -69,6 +69,11 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Oversized sign-off wordmark */}
+          <div className="footer__wordmark" aria-hidden="true">
+            <span>{name}</span>
+          </div>
+
           {/* Divider */}
           <div className="footer__divider" />
 
@@ -78,7 +83,7 @@ const Footer = () => {
               &copy; {currentYear} {name}. All rights reserved.
             </p>
             <p className="footer__made-with">
-              Made with <FaHeart className="footer__heart" /> using React
+              Designed &amp; built with <FaHeart className="footer__heart" /> in React
             </p>
           </div>
         </div>

@@ -49,6 +49,16 @@
   --section-padding: 7rem 0;
   --container-max: 1180px;
 
+  /* Spacing scale — one rhythm shared across sections */
+  --space-3xs: 0.375rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -66,6 +76,34 @@
   --transition-fast: 140ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 260ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Premium layer: gradients, light, grain --- *
+   * One warm "signal" gradient (clay → amber → olive) used
+   * sparingly for focal accents, plus two ambient light
+   * blooms that give the page real depth without banding. */
+  --grad-signal: linear-gradient(135deg, #c9713f 0%, #b1552f 42%, #8a6a3a 100%);
+  --grad-signal-soft: linear-gradient(120deg,
+    color-mix(in srgb, var(--color-primary) 90%, #d89a4e),
+    var(--color-primary) 55%,
+    color-mix(in srgb, var(--color-primary) 78%, #7c7a4a));
+  --grad-ink: linear-gradient(180deg, #2c2620, #453a2e);
+
+  /* ambient blooms — warm, low-opacity, hand-placed */
+  --bloom-1: rgba(177, 85, 47, 0.16);
+  --bloom-2: rgba(124, 122, 74, 0.13);
+  --bloom-3: rgba(216, 154, 78, 0.10);
+  --grain-opacity: 0.032;
+  --grain-blend: multiply;
+
+  /* cursor spotlight — barely-there warm light that tracks the pointer */
+  --spotlight-color: rgba(177, 85, 47, 0.07);
+
+  /* premium elevation for the few real cards that remain */
+  --shadow-float: 0 2px 4px rgba(74, 52, 30, 0.05),
+    0 14px 30px -18px rgba(74, 52, 30, 0.30),
+    0 40px 80px -50px rgba(74, 52, 30, 0.35);
+  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 16%, transparent);
 }
 
 /* explicit light (same as root, for the theme toggle) */
@@ -114,6 +152,25 @@ html[data-theme='dark'] {
   --shadow-md: 0 14px 32px -16px rgba(0, 0, 0, 0.72);
   --shadow-lg: 0 28px 56px -24px rgba(0, 0, 0, 0.74);
   --shadow-xl: 0 38px 72px -30px rgba(0, 0, 0, 0.8);
+  --shadow-float: 0 2px 4px rgba(0, 0, 0, 0.4),
+    0 18px 40px -20px rgba(0, 0, 0, 0.7),
+    0 50px 90px -50px rgba(0, 0, 0, 0.85);
+
+  /* on dark, the signal gradient glows a touch warmer */
+  --grad-signal: linear-gradient(135deg, #ee9f74 0%, #e18a5b 44%, #bcb87c 100%);
+  --grad-signal-soft: linear-gradient(120deg,
+    color-mix(in srgb, var(--color-primary) 92%, #f2c27e),
+    var(--color-primary) 55%,
+    color-mix(in srgb, var(--color-primary) 80%, #bcb87c));
+  --grad-ink: linear-gradient(180deg, #f6eee1, #c9baa5);
+
+  --bloom-1: rgba(225, 138, 91, 0.20);
+  --bloom-2: rgba(188, 184, 124, 0.13);
+  --bloom-3: rgba(240, 178, 108, 0.12);
+  --grain-opacity: 0.05;
+  --grain-blend: overlay;
+  --spotlight-color: rgba(238, 159, 116, 0.09);
+  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 24%, transparent);
 }
 
 /* ========================================
@@ -174,6 +231,17 @@ html { accent-color: var(--color-primary); }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
+/* Visually hidden but available to assistive tech */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
@@ -192,6 +260,113 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 2;
 }
+
+/* ========================================
+   ATMOSPHERE — a fixed, layered light stage
+   behind the whole page. Two hand-placed warm
+   blooms that drift slowly, plus a fine grain.
+   This is what turns "flat page" into "room".
+   ======================================== */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.atmosphere__bloom {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.atmosphere__bloom--1 {
+  top: -12vh;
+  right: -8vw;
+  width: 62vw;
+  height: 62vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(circle at 50% 50%, var(--bloom-1), transparent 68%);
+  animation: bloom-drift-a 26s ease-in-out infinite alternate;
+}
+
+.atmosphere__bloom--2 {
+  bottom: -18vh;
+  left: -12vw;
+  width: 58vw;
+  height: 58vw;
+  max-width: 820px;
+  max-height: 820px;
+  background: radial-gradient(circle at 50% 50%, var(--bloom-2), transparent 66%);
+  animation: bloom-drift-b 32s ease-in-out infinite alternate;
+}
+
+.atmosphere__bloom--3 {
+  top: 34%;
+  left: 40%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: radial-gradient(circle at 50% 50%, var(--bloom-3), transparent 70%);
+  animation: bloom-drift-c 38s ease-in-out infinite alternate;
+}
+
+@keyframes bloom-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-5%, 7%, 0) scale(1.12); }
+}
+@keyframes bloom-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to   { transform: translate3d(8%, -6%, 0) scale(1); }
+}
+@keyframes bloom-drift-c {
+  from { transform: translate3d(-4%, 0, 0) scale(0.95); opacity: 0.7; }
+  to   { transform: translate3d(6%, -4%, 0) scale(1.1); opacity: 1; }
+}
+
+/* fine film grain over everything — the "paper" texture */
+.atmosphere__grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(6) infinite;
+}
+
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-6%, 4%); }
+  40%  { transform: translate(3%, -7%); }
+  60%  { transform: translate(-4%, 5%); }
+  80%  { transform: translate(5%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* cursor spotlight — a soft warm light that follows the pointer.
+   Position fed via --mx/--my custom props (px) from JS. */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 40%),
+    var(--spotlight-color),
+    transparent 70%
+  );
+}
+.spotlight.is-active { opacity: 1; }
+
+@media (hover: none) { .spotlight { display: none; } }
 
 /* ========================================
    LAYOUT
@@ -377,10 +552,70 @@ html[data-theme='dark'] .btn-primary:hover {
 
 .scroll-progress-bar {
   height: 100%;
-  background: var(--color-primary);
+  background: var(--grad-signal);
   transform-origin: left;
   transition: transform 100ms linear;
-  opacity: 0.85;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 55%, transparent);
+}
+
+/* ========================================
+   SHARED PREMIUM UTILITIES
+   ======================================== */
+
+/* Warm gradient ink — for a single focal word, never a paragraph */
+.text-gradient {
+  background: var(--grad-signal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Magnetic wrapper — inline-block host so translate reads cleanly */
+.magnetic { display: inline-flex; will-change: transform; }
+
+/* Oversized ghost numeral / word that sits behind a section head,
+   giving each section a quiet focal mark. Structural, not decorative:
+   it echoes the section's place in the read. */
+.section-mark {
+  position: absolute;
+  top: -0.28em;
+  right: 0.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(8rem, 20vw, 17rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-text-primary);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* A hairline that draws itself in on reveal (used as section divider) */
+.rule-draw {
+  height: 1px;
+  background: linear-gradient(90deg,
+    var(--color-primary),
+    var(--color-border-strong) 30%,
+    transparent);
+  transform-origin: left;
+}
+
+/* Eyebrow accent used by the animated section label */
+.section-label--glow::before {
+  background: var(--grad-signal);
+  opacity: 1;
+}
+
+/* Marquee band — a quiet ruled strip between hero and about */
+.marquee-band {
+  padding: 1.7rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent);
 }
 
 /* ========================================

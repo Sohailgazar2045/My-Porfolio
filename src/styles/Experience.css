@@ -1,7 +1,7 @@
 /* ========================================
-   EXPERIENCE — centered alternating timeline
-   Spine down the middle, roles branching to
-   alternating sides, a node on each branch.
+   EXPERIENCE — single-sided timeline
+   One spine on the left, a node per role,
+   everything left-aligned for readability.
    ======================================== */
 .experience {
   padding: var(--section-padding);
@@ -10,90 +10,102 @@
 
 .experience__ambient { display: none; }
 
+.experience__container { position: relative; }
+
 .experience__header {
+  position: relative;
+  z-index: 1;
   text-align: left;
-  margin-bottom: 3.25rem;
+  margin-bottom: var(--space-xl);
 }
 
-/* the list + center spine */
+/* the list + left spine */
 .experience__grid {
   display: block;
   position: relative;
+  z-index: 1;
+  max-width: 780px;
 }
 
+/* faded track */
 .experience__grid::before {
   content: '';
   position: absolute;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: 50%;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 7px;
   width: 2px;
-  transform: translateX(-50%);
   background: var(--color-border);
 }
 
-/* each role sits on one half; combined selector beats global .glow-card */
+/* bright fill that draws in on scroll */
+.experience__spine {
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 7px;
+  width: 2px;
+  transform-origin: top;
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    color-mix(in srgb, var(--color-primary) 55%, var(--color-accent))
+  );
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 40%, transparent);
+  z-index: 0;
+}
+
+/* each role — full width, left aligned (beats global .glow-card) */
 .experience__card,
 .experience__card.glow-card,
 .experience__card.glow-card:hover {
   position: relative;
   display: block;
-  width: 50%;
+  width: 100%;
   background: none;
   border: none;
   border-radius: 0;
   box-shadow: none;
   transform: none;
   overflow: visible;
-  padding-bottom: 3.25rem;
+  text-align: left;
+  padding: 0 0 2.75rem 2.75rem;
 }
 
 .experience__card:last-child { padding-bottom: 0; }
 
 html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
 
-.experience__card:nth-child(odd) {
-  margin-left: 0;
-  padding-right: 3rem;
-  text-align: right;
-}
-
-.experience__card:nth-child(even) {
-  margin-left: 50%;
-  padding-left: 3rem;
-  text-align: left;
-}
-
 /* node on the spine */
 .experience__card::before {
   content: '';
   position: absolute;
-  top: 0.35rem;
-  width: 15px;
-  height: 15px;
+  top: 0.3rem;
+  left: 7px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--color-bg-primary);
   border: 2px solid var(--color-primary);
   box-shadow: 0 0 0 5px var(--color-bg-primary);
+  transform: translateX(-50%);
   z-index: 2;
+  transition: background var(--transition-base), transform var(--transition-base);
 }
 
-.experience__card:nth-child(odd)::before { right: 0; transform: translateX(50%); }
-.experience__card:nth-child(even)::before { left: 0; transform: translateX(-50%); }
-
-/* branch connector from spine to the content */
+/* connector from spine to content */
 .experience__card::after {
   content: '';
   position: absolute;
-  top: calc(0.35rem + 6px);
+  top: calc(0.3rem + 7px);
+  left: 7px;
   height: 2px;
-  width: 3rem;
+  width: 1.6rem;
   background: var(--color-border);
   z-index: 1;
 }
 
-.experience__card:nth-child(odd)::after { right: 0; }
-.experience__card:nth-child(even)::after { left: 0; }
+.experience__card:hover::before { transform: translateX(-50%) scale(1.12); }
 
 /* current role: filled node with a soft pulse */
 .experience__card:first-child::before {
@@ -104,11 +116,11 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
 @keyframes exp-node-pulse {
   0% {
     box-shadow: 0 0 0 5px var(--color-bg-primary),
-      0 0 0 5px color-mix(in srgb, var(--color-primary) 50%, transparent);
+      0 0 0 5px color-mix(in srgb, var(--color-primary) 45%, transparent);
   }
   100% {
     box-shadow: 0 0 0 5px var(--color-bg-primary),
-      0 0 0 14px color-mix(in srgb, var(--color-primary) 0%, transparent);
+      0 0 0 15px color-mix(in srgb, var(--color-primary) 0%, transparent);
   }
 }
 
@@ -122,26 +134,24 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
 .experience__inner {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   max-width: none;
   padding: 0;
 }
 
 .experience__inner::before { display: none; }
 
-.experience__card:nth-child(odd) .experience__inner { align-items: flex-end; }
-.experience__card:nth-child(even) .experience__inner { align-items: flex-start; }
-
-.experience__meta { margin: 0 0 0.5rem; padding: 0; }
+.experience__meta { margin: 0 0 0.6rem; padding: 0; }
 
 .experience__duration {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-family: var(--font-primary);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--color-text-tertiary);
   padding: 0;
   border: none;
@@ -157,17 +167,17 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--color-primary);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .experience__position {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
   font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
   color: var(--color-text-primary);
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.15rem;
 }
 
 .experience__highlights {
@@ -192,15 +202,10 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   line-height: 1.6;
   font-weight: 400;
   color: var(--color-text-secondary);
-}
-
-.experience__card:nth-child(odd) .experience__list-item {
-  flex-direction: row-reverse;
-  text-align: right;
 }
 
 .experience__marker {
@@ -226,7 +231,7 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
   border-radius: 0;
   box-shadow: none;
   font-family: var(--font-primary);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--color-primary);
   cursor: pointer;
@@ -248,46 +253,10 @@ html[data-theme='dark'] .experience__card.glow-card { box-shadow: none; }
 
 .experience__expand-icon { display: inline-flex; font-size: 1rem; color: var(--color-primary); }
 
-/* ---- Mobile: single-side timeline ---- */
 @media (max-width: 768px) {
-  .experience__grid::before { left: 7px; transform: none; }
-
   .experience__card,
-  .experience__card.glow-card,
-  .experience__card:nth-child(odd),
-  .experience__card:nth-child(even) {
-    width: 100%;
-    margin-left: 0;
-    padding: 0 0 2.5rem 2.1rem;
-    text-align: left;
+  .experience__card.glow-card {
+    padding: 0 0 2.5rem 2.35rem;
   }
-
-  .experience__card:last-child { padding-bottom: 0; }
-
-  .experience__card::before,
-  .experience__card:nth-child(odd)::before,
-  .experience__card:nth-child(even)::before {
-    left: 7px;
-    right: auto;
-    transform: translateX(-50%);
-  }
-
-  .experience__card::after,
-  .experience__card:nth-child(odd)::after,
-  .experience__card:nth-child(even)::after {
-    left: 7px;
-    right: auto;
-    width: 1.3rem;
-  }
-
-  .experience__inner,
-  .experience__card:nth-child(odd) .experience__inner,
-  .experience__card:nth-child(even) .experience__inner {
-    align-items: flex-start;
-  }
-
-  .experience__card:nth-child(odd) .experience__list-item {
-    flex-direction: row;
-    text-align: left;
-  }
+  .experience__card::after { width: 1.3rem; }
 }

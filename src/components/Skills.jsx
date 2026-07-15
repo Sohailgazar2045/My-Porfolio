@@ -31,7 +31,8 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills">
-      <div className="container">
+      <div className="container skills__container">
+        <span className="section-mark" aria-hidden="true">S</span>
         <motion.div
           variants={fadeBlurUp}
           initial="hidden"
@@ -39,8 +40,8 @@ const Skills = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="skills__header"
         >
-          <span className="section-label">Skills</span>
-          <h2 className="section-title">What I work with</h2>
+          <span className="section-label section-label--glow">Skills</span>
+          <h2 className="section-title">What I <span className="text-gradient">work</span> with</h2>
           <p className="section-subtitle">
             The stack I've spent the most time in. Strongest in the
             TypeScript, React and Node world — the rest I've used on real

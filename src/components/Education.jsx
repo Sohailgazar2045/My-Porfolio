@@ -9,7 +9,8 @@ const Education = () => {
 
   return (
     <section id="education" className="education">
-      <div className="container">
+      <div className="container education__container">
+        <span className="section-mark" aria-hidden="true">Ed</span>
         <motion.div
           variants={fadeBlurUp}
           initial="hidden"
@@ -17,8 +18,8 @@ const Education = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="education__header"
         >
-          <span className="section-label">Education</span>
-          <h2 className="section-title">Where I studied</h2>
+          <span className="section-label section-label--glow">Education</span>
+          <h2 className="section-title">Where I <span className="text-gradient">studied</span></h2>
           <p className="section-subtitle">
             My formal background — most of the day-to-day I picked up on the job.
           </p>
@@ -42,6 +43,7 @@ const Education = () => {
               </div>
 
               <div className="education__card-content">
+                <span className="education__tag">Degree</span>
                 <h3 className="education__degree">{edu.degree}</h3>
 
                 <div className="education__meta">
@@ -56,9 +58,9 @@ const Education = () => {
                 </div>
               </div>
 
-              <div className="education__decoration">
-                <div className="education__decoration-line" />
-              </div>
+              <span className="education__watermark" aria-hidden="true">
+                {edu.duration.split(' - ')[1] || ''}
+              </span>
             </motion.div>
           ))}
         </motion.div>

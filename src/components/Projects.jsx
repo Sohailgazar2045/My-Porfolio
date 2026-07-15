@@ -1,9 +1,16 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from 'framer-motion';
 import { HiChevronDown, HiExternalLink } from 'react-icons/hi';
+import { HiArrowUpRight } from 'react-icons/hi2';
 import { FaGithub } from 'react-icons/fa';
 import data from '../data.json';
-import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
+import { fadeBlurUp, fadeUpItem } from '../lib/motion';
 import '../styles/Projects.css';
 
 const PREVIEW_COUNT = 6;
@@ -25,20 +32,53 @@ const PROJECT_TYPES = {
   'Currency Converter App — Backend': 'Backend API',
 };
 
+// A warm, in-family accent per project — used to tint the floating
+// "plate" preview so each project reads as its own object while the
+// palette stays cohesive.
+const PROJECT_ACCENTS = [
+  ['#b1552f', '#d89a4e'], ['#7c7a4a', '#b1552f'], ['#9c6242', '#c9713f'],
+  ['#8a6a3a', '#7c7a4a'], ['#b1552f', '#9c6242'], ['#6f7d55', '#8a6a3a'],
+  ['#a86a5c', '#b1552f'], ['#c17a3c', '#8a6a3a'], ['#7c7a4a', '#6f7d55'],
+  ['#b1552f', '#c17a3c'], ['#9c6242', '#a86a5c'], ['#8a6a3a', '#c9713f'],
+];
+
 const Projects = () => {
   const { projects } = data;
   const [showAll, setShowAll] = useState(false);
   const [openIndex, setOpenIndex] = useState(0);
+  const [hovered, setHovered] = useState(null);
+  const reduce = useReducedMotion();
+  const listRef = useRef(null);
+
+  // Floating preview follows the cursor with a soft spring lag.
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 260, damping: 28, mass: 0.6 });
+  const sy = useSpring(py, { stiffness: 260, damping: 28, mass: 0.6 });
+
+  const canPreview =
+    !reduce &&
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: hover) and (min-width: 900px)').matches;
+
+  const handleListMove = (e) => {
+    if (!canPreview) return;
+    px.set(e.clientX);
+    py.set(e.clientY);
+  };
 
   const hasMore = projects.length > PREVIEW_COUNT;
   const visible = showAll ? projects : projects.slice(0, PREVIEW_COUNT);
   const hiddenCount = projects.length - PREVIEW_COUNT;
 
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? null : i));
+  const hoveredProject = hovered != null ? projects[hovered] : null;
+  const hoveredAccent = PROJECT_ACCENTS[(hovered ?? 0) % PROJECT_ACCENTS.length];
 
   return (
     <section id="projects" className="projects">
-      <div className="container">
+      <div className="container projects__container">
+        <span className="section-mark" aria-hidden="true">W</span>
         <motion.div
           variants={fadeBlurUp}
           initial="hidden"
@@ -46,20 +86,18 @@ const Projects = () => {
           viewport={{ once: true, margin: '-100px' }}
           className="projects__header"
         >
-          <span className="section-label">Projects</span>
-          <h2 className="section-title">Selected work</h2>
+          <span className="section-label section-label--glow">Projects</span>
+          <h2 className="section-title">Selected <span className="text-gradient">work</span></h2>
           <p className="section-subtitle">
             A few of the projects I&apos;ve built or worked on recently. Open any
             one for the details.
           </p>
         </motion.div>
 
-        <motion.div
+        <div
           className="projects__list"
-          variants={staggerContainer(0.07, 0)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          ref={listRef}
+          onPointerMove={handleListMove}
         >
           {visible.map((project, index) => {
             const isOpen = openIndex === index;
@@ -68,8 +106,13 @@ const Projects = () => {
             return (
               <motion.div
                 key={project.title}
-                className={`projects__row ${isOpen ? 'is-open' : ''}`}
+                className={`projects__row ${isOpen ? 'is-open' : ''} ${hovered === index ? 'is-hovered' : ''}`}
                 variants={fadeUpItem}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                onMouseEnter={() => canPreview && setHovered(index)}
+                onMouseLeave={() => canPreview && setHovered((h) => (h === index ? null : h))}
               >
                 <button
                   type="button"
@@ -134,7 +177,45 @@ const Projects = () => {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
+
+        {/* Floating "plate" preview — tracks the cursor over the list.
+            A bespoke magazine plate stands in for a screenshot. */}
+        <AnimatePresence>
+          {canPreview && hoveredProject && (
+            <motion.div
+              className="projects__preview"
+              style={{ x: sx, y: sy }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              aria-hidden="true"
+            >
+              <div
+                className="projects__preview-plate"
+                style={{
+                  '--a': hoveredAccent[0],
+                  '--b': hoveredAccent[1],
+                }}
+              >
+                <div className="projects__preview-glow" />
+                <span className="projects__preview-num">
+                  {String((hovered ?? 0) + 1).padStart(2, '0')}
+                </span>
+                <div className="projects__preview-foot">
+                  <span className="projects__preview-type">
+                    {PROJECT_TYPES[hoveredProject.title]}
+                  </span>
+                  <span className="projects__preview-title">{hoveredProject.title}</span>
+                  <span className="projects__preview-cue">
+                    Open details <HiArrowUpRight />
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {hasMore && (
           <div className="projects__more">
