@@ -71,7 +71,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.span variants={item}>Full-stack developer</motion.span>
+            <motion.span variants={item}>Full-Stack &amp; Automation Engineer</motion.span>
             <motion.span className="hero__meta-dot" variants={item} aria-hidden="true" />
             <motion.span variants={item}>{location}</motion.span>
             <motion.span className="hero__meta-dot" variants={item} aria-hidden="true" />
