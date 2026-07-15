@@ -13,14 +13,16 @@ import { getSkillIcon } from '../lib/skillIcons';
 import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Skills.css';
 
+// One champagne-gold family, shifted subtly per category so each
+// card's rail reads as its own without breaking the restraint.
 const CATEGORY_META = {
-  languages: { icon: <HiCode />, label: 'Languages', color: '#b1552f' },
-  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#c17a3c' },
-  backend: { icon: <HiServer />, label: 'Backend', color: '#9c6242' },
-  databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#7c7a4a' },
-  cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#6f7d55' },
-  integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#be8a3c' },
-  other: { icon: <HiCog />, label: 'Other', color: '#a86a5c' },
+  languages: { icon: <HiCode />, label: 'Languages', color: '#d8bf9a' },
+  frontend: { icon: <HiDesktopComputer />, label: 'Frontend', color: '#c5a880' },
+  backend: { icon: <HiServer />, label: 'Backend', color: '#b39268' },
+  databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#a88a63' },
+  cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#9a938a' },
+  integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#cdb185' },
+  other: { icon: <HiCog />, label: 'Other', color: '#bfa377' },
 };
 
 const Skills = () => {
@@ -57,7 +59,7 @@ const Skills = () => {
           viewport={{ once: true, margin: '-50px' }}
         >
           {Object.entries(skills).map(([category, items]) => {
-            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#2563eb' };
+            const meta = CATEGORY_META[category] || { icon: <HiCode />, label: category, color: '#c5a880' };
             return (
               <motion.div
                 key={category}

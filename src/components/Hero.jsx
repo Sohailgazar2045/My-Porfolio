@@ -14,7 +14,10 @@ import { staggerContainer, fadeUpItem, revealContainer, revealLine } from '../li
 import Magnetic from './Magnetic';
 import '../styles/Hero.css';
 
-const SEAL_TEXT = 'AVAILABLE FOR WORK — FULL-STACK ENGINEER — ';
+// Middots (not em-dashes) keep the phrase short enough to sit on the
+// seal's circumference with a clear gap — em-dashes are ~1em wide each
+// and pushed the text into itself.
+const SEAL_TEXT = 'AVAILABLE FOR WORK · FULL-STACK ENGINEER · ';
 
 const Hero = () => {
   const { name, email, resumeUrl, profileImage, github, linkedin, location } = data.personalInfo;
@@ -33,7 +36,6 @@ const Hero = () => {
   });
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 90]);
   const copyY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -40]);
-  const heroFade = useTransform(scrollYProgress, [0, 0.8], [1, reduce ? 1 : 0]);
 
   // Cursor tilt on the portrait — subtle, spring-damped 3D.
   const rx = useMotionValue(0);
@@ -61,7 +63,7 @@ const Hero = () => {
     <section id="home" className="hero" ref={sectionRef}>
       <div className="hero__aurora" aria-hidden="true" />
 
-      <motion.div className="container hero__layout" style={{ opacity: heroFade }}>
+      <motion.div className="container hero__layout">
         <motion.div className="hero__copy" style={{ y: copyY }}>
           <motion.p
             className="hero__meta"

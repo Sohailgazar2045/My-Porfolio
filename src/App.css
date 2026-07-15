@@ -1,50 +1,55 @@
 /* ========================================
-   DESIGN SYSTEM — Warm paper & terracotta
-   A calm, editorial, hand-built feel:
-   cream paper, warm ink, one clay accent,
-   a real serif for headlines. No glass,
-   no glow, no gradients-for-the-sake-of-it.
+   DESIGN SYSTEM — Quiet Luxury
+   Matte obsidian, graphite cards, alabaster
+   text, one champagne-gold accent used with
+   restraint — for borders, active states and
+   buttons. Spacious, high-end, no loud glow.
+   Dark is the identity (below); this :root is
+   its refined porcelain daylight counterpart.
    ======================================== */
 :root {
   color-scheme: light;
 
-  /* clay / terracotta — the one accent */
-  --color-primary: #b1552f;
-  --color-primary-light: #c9713f;
-  --color-primary-dark: #8f4425;
+  /* champagne gold — the one accent (bronzed for light contrast) */
+  --color-primary: #a6844e;
+  --color-primary-light: #c5a880;
+  --color-primary-dark: #866636;
 
-  --color-secondary: #6a5d4f;
-  --color-accent: #7c7a4a;      /* muted olive, used sparingly */
-  --color-success: #5f7a4f;
-  --color-warning: #b4772a;
+  --color-secondary: #6b655c;
+  --color-accent: #a6844e;      /* same gold — held to one accent */
+  --color-success: #6f8a68;
+  --color-warning: #b08a3e;
 
-  /* warm paper surfaces */
-  --color-bg-primary: #f6efe3;
-  --color-bg-secondary: #f0e7d7;
-  --color-bg-tertiary: #eae0cd;
-  --color-bg-card: #fffdf7;
-  --color-bg-glass: rgba(246, 239, 227, 0.82);
+  /* porcelain surfaces */
+  --color-bg-primary: #f4f1ec;
+  --color-bg-secondary: #ece8e1;
+  --color-bg-tertiary: #e4dfd6;
+  --color-bg-card: #fbfaf7;
+  --color-bg-glass: rgba(244, 241, 236, 0.82);
 
-  /* warm ink */
-  --color-text-primary: #2c2620;
-  --color-text-secondary: #6c5f51;
-  --color-text-tertiary: #978877;
-  --color-text-accent: #8f4425;
+  /* graphite ink */
+  --color-text-primary: #1b1a17;
+  --color-text-secondary: #5f5952;
+  --color-text-tertiary: #8e877c;
+  --color-text-accent: #866636;
 
-  --color-border: rgba(63, 47, 32, 0.13);
-  --color-border-strong: rgba(63, 47, 32, 0.22);
-  --color-border-hover: rgba(177, 85, 47, 0.5);
+  --color-border: rgba(28, 26, 22, 0.12);
+  --color-border-strong: rgba(28, 26, 22, 0.2);
+  --color-border-hover: rgba(166, 132, 78, 0.55);
 
-  --color-nav-hover-bg: rgba(177, 85, 47, 0.09);
-  --color-nav-active-bg: rgba(177, 85, 47, 0.14);
-  --color-overlay-scrim: rgba(44, 33, 22, 0.42);
-  --color-btn-secondary-hover-bg: rgba(177, 85, 47, 0.06);
-  --color-selection-bg: rgba(177, 85, 47, 0.22);
+  --color-nav-hover-bg: rgba(166, 132, 78, 0.09);
+  --color-nav-active-bg: rgba(166, 132, 78, 0.14);
+  --color-overlay-scrim: rgba(24, 22, 18, 0.42);
+  --color-btn-secondary-hover-bg: rgba(166, 132, 78, 0.06);
+  --color-selection-bg: rgba(166, 132, 78, 0.22);
 
   --font-primary: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-editorial: 'Fraunces', Georgia, serif;
   --font-mono: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+
+  /* dark obsidian ink — sits on gold buttons/plates in both themes */
+  --color-on-accent: #1a1712;
 
   --section-padding: 7rem 0;
   --container-max: 1180px;
@@ -79,25 +84,25 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* --- Premium layer: gradients, light, grain --- *
-   * One warm "signal" gradient (clay → amber → olive) used
-   * sparingly for focal accents, plus two ambient light
-   * blooms that give the page real depth without banding. */
-  --grad-signal: linear-gradient(135deg, #c9713f 0%, #b1552f 42%, #8a6a3a 100%);
+   * One restrained champagne "signal" gradient for focal
+   * accents, plus barely-there ambient blooms that give the
+   * page depth without a loud glow — matte, not neon. */
+  --grad-signal: linear-gradient(135deg, #c5a880 0%, #a6844e 52%, #866636 100%);
   --grad-signal-soft: linear-gradient(120deg,
-    color-mix(in srgb, var(--color-primary) 90%, #d89a4e),
+    color-mix(in srgb, var(--color-primary) 90%, #d8bf9a),
     var(--color-primary) 55%,
-    color-mix(in srgb, var(--color-primary) 78%, #7c7a4a));
-  --grad-ink: linear-gradient(180deg, #2c2620, #453a2e);
+    color-mix(in srgb, var(--color-primary) 82%, #6b655c));
+  --grad-ink: linear-gradient(180deg, #1b1a17, #3a352e);
 
-  /* ambient blooms — warm, low-opacity, hand-placed */
-  --bloom-1: rgba(177, 85, 47, 0.16);
-  --bloom-2: rgba(124, 122, 74, 0.13);
-  --bloom-3: rgba(216, 154, 78, 0.10);
-  --grain-opacity: 0.032;
+  /* ambient blooms — champagne, very low opacity, hand-placed */
+  --bloom-1: rgba(166, 132, 78, 0.12);
+  --bloom-2: rgba(120, 116, 104, 0.10);
+  --bloom-3: rgba(197, 168, 128, 0.08);
+  --grain-opacity: 0.03;
   --grain-blend: multiply;
 
-  /* cursor spotlight — barely-there warm light that tracks the pointer */
-  --spotlight-color: rgba(177, 85, 47, 0.07);
+  /* cursor spotlight — barely-there champagne light that tracks the pointer */
+  --spotlight-color: rgba(166, 132, 78, 0.06);
 
   /* premium elevation for the few real cards that remain */
   --shadow-float: 0 2px 4px rgba(74, 52, 30, 0.05),
@@ -111,66 +116,67 @@ html[data-theme='light'] {
   color-scheme: light;
 }
 
-/* ---- Warm dark (roasted espresso, refined) ----
-   Deep near-neutral warm charcoal so it reads premium,
-   not muddy-brown. Cards lift a clear step above the
-   page; the accent is a touch brighter to hold up on
-   dark; borders and text carry more contrast. */
+/* ---- Quiet Luxury dark (the identity) ----
+   Matte obsidian page, graphite cards that lift a
+   clear step above it, alabaster text, and a single
+   champagne-gold accent held in reserve for borders,
+   active states and buttons. Deep matte shadows, no
+   neon bloom — restraint is the whole point. */
 html[data-theme='dark'] {
   color-scheme: dark;
 
-  --color-primary: #e18a5b;
-  --color-primary-light: #ee9f74;
-  --color-primary-dark: #c46a41;
-  --color-secondary: #c7b7a2;
-  --color-accent: #bcb87c;
-  --color-success: #a8bf86;
-  --color-warning: #e0aa61;
+  --color-primary: #c5a880;        /* champagne gold */
+  --color-primary-light: #d8bf9a;
+  --color-primary-dark: #a88a63;
+  --color-secondary: #9a938a;
+  --color-accent: #c5a880;
+  --color-success: #8fa88b;
+  --color-warning: #cba75f;
 
-  --color-bg-primary: #17130f;
-  --color-bg-secondary: #120f0c;
-  --color-bg-tertiary: #241c15;
-  --color-bg-card: #201911;
-  --color-bg-glass: rgba(23, 19, 15, 0.78);
+  --color-bg-primary: #121212;     /* matte obsidian */
+  --color-bg-secondary: #0d0d0d;   /* deeper — the continuous canvas */
+  --color-bg-tertiary: #202020;
+  --color-bg-card: #1a1a1a;        /* graphite */
+  --color-bg-glass: rgba(18, 18, 18, 0.72);
 
-  --color-text-primary: #f6eee1;
-  --color-text-secondary: #c9baa5;
-  --color-text-tertiary: #978774;
-  --color-text-accent: #ee9f74;
+  --color-text-primary: #f5f5f7;   /* alabaster */
+  --color-text-secondary: #a7a29a;
+  --color-text-tertiary: #6e6a63;
+  --color-text-accent: #d8bf9a;
 
-  --color-border: rgba(247, 233, 209, 0.11);
-  --color-border-strong: rgba(247, 233, 209, 0.2);
-  --color-border-hover: rgba(225, 138, 91, 0.55);
+  --color-border: rgba(245, 245, 247, 0.09);
+  --color-border-strong: rgba(245, 245, 247, 0.16);
+  --color-border-hover: rgba(197, 168, 128, 0.55);
 
-  --color-nav-hover-bg: rgba(225, 138, 91, 0.12);
-  --color-nav-active-bg: rgba(225, 138, 91, 0.18);
-  --color-overlay-scrim: rgba(9, 7, 5, 0.72);
-  --color-btn-secondary-hover-bg: rgba(225, 138, 91, 0.09);
-  --color-selection-bg: rgba(225, 138, 91, 0.32);
+  --color-nav-hover-bg: rgba(197, 168, 128, 0.08);
+  --color-nav-active-bg: rgba(197, 168, 128, 0.14);
+  --color-overlay-scrim: rgba(6, 6, 6, 0.8);
+  --color-btn-secondary-hover-bg: rgba(197, 168, 128, 0.07);
+  --color-selection-bg: rgba(197, 168, 128, 0.26);
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 14px 32px -16px rgba(0, 0, 0, 0.72);
-  --shadow-lg: 0 28px 56px -24px rgba(0, 0, 0, 0.74);
-  --shadow-xl: 0 38px 72px -30px rgba(0, 0, 0, 0.8);
-  --shadow-float: 0 2px 4px rgba(0, 0, 0, 0.4),
-    0 18px 40px -20px rgba(0, 0, 0, 0.7),
-    0 50px 90px -50px rgba(0, 0, 0, 0.85);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.55);
+  --shadow-md: 0 14px 32px -16px rgba(0, 0, 0, 0.74);
+  --shadow-lg: 0 28px 56px -24px rgba(0, 0, 0, 0.78);
+  --shadow-xl: 0 38px 72px -30px rgba(0, 0, 0, 0.82);
+  --shadow-float: 0 2px 4px rgba(0, 0, 0, 0.45),
+    0 18px 40px -20px rgba(0, 0, 0, 0.72),
+    0 50px 90px -50px rgba(0, 0, 0, 0.88);
 
-  /* on dark, the signal gradient glows a touch warmer */
-  --grad-signal: linear-gradient(135deg, #ee9f74 0%, #e18a5b 44%, #bcb87c 100%);
+  /* on obsidian, the champagne signal warms very slightly */
+  --grad-signal: linear-gradient(135deg, #d8bf9a 0%, #c5a880 50%, #a88a63 100%);
   --grad-signal-soft: linear-gradient(120deg,
-    color-mix(in srgb, var(--color-primary) 92%, #f2c27e),
+    color-mix(in srgb, var(--color-primary) 92%, #e6d4b2),
     var(--color-primary) 55%,
-    color-mix(in srgb, var(--color-primary) 80%, #bcb87c));
-  --grad-ink: linear-gradient(180deg, #f6eee1, #c9baa5);
+    color-mix(in srgb, var(--color-primary) 82%, #9a938a));
+  --grad-ink: linear-gradient(180deg, #f5f5f7, #a7a29a);
 
-  --bloom-1: rgba(225, 138, 91, 0.20);
-  --bloom-2: rgba(188, 184, 124, 0.13);
-  --bloom-3: rgba(240, 178, 108, 0.12);
-  --grain-opacity: 0.05;
+  --bloom-1: rgba(197, 168, 128, 0.10);
+  --bloom-2: rgba(154, 147, 138, 0.07);
+  --bloom-3: rgba(245, 245, 247, 0.04);
+  --grain-opacity: 0.045;
   --grain-blend: overlay;
-  --spotlight-color: rgba(238, 159, 116, 0.09);
-  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 24%, transparent);
+  --spotlight-color: rgba(197, 168, 128, 0.06);
+  --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }
 
 /* ========================================
@@ -458,7 +464,7 @@ section {
 
 .btn-primary {
   background: var(--color-primary);
-  color: #fff8f1;
+  color: var(--color-on-accent);
   box-shadow: var(--shadow-sm);
 }
 
@@ -520,14 +526,10 @@ html[data-theme='dark'] .glow-card:hover {
   box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 243, 226, 0.07);
 }
 
-/* Dark accent buttons read cleaner with dark ink on the
-   lighter terracotta than with washed-out cream. */
+/* On dark, the primary gets a deeper gold on hover; the
+   obsidian ink stays legible against it. */
 html[data-theme='dark'] .btn-primary {
-  color: #1b130d;
-}
-
-html[data-theme='dark'] .btn-primary:hover {
-  color: #150f0a;
+  color: var(--color-on-accent);
 }
 
 .glass {

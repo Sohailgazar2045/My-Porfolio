@@ -52,10 +52,10 @@
   height: 58px;
   border-radius: var(--radius-lg);
   background: var(--grad-signal);
-  color: #fff8f1;
+  color: var(--color-on-accent);
   font-size: 1.6rem;
   flex-shrink: 0;
-  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 248, 241, 0.25);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 248, 241, 0.2);
 }
 
 .education__card-content { position: relative; flex: 1; }

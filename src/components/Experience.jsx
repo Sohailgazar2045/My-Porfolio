@@ -6,9 +6,9 @@ import { fadeBlurUp, fadeUpItem, staggerContainer } from '../lib/motion';
 import '../styles/Experience.css';
 
 const RAIL_PAIRS = [
-  ['#b1552f', '#c9713f'],
-  ['#7c7a4a', '#9a9a5e'],
-  ['#9c6242', '#bd8a5a'],
+  ['#d8bf9a', '#a88a63'],
+  ['#c5a880', '#9a938a'],
+  ['#cdb185', '#8a6c3c'],
 ];
 
 const PREVIEW = 2;

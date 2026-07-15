@@ -32,14 +32,14 @@ const PROJECT_TYPES = {
   'Currency Converter App — Backend': 'Backend API',
 };
 
-// A warm, in-family accent per project — used to tint the floating
+// A deep graphite-to-bronze accent per project — tints the floating
 // "plate" preview so each project reads as its own object while the
-// palette stays cohesive.
+// palette stays a restrained, matte, champagne-metallic family.
 const PROJECT_ACCENTS = [
-  ['#b1552f', '#d89a4e'], ['#7c7a4a', '#b1552f'], ['#9c6242', '#c9713f'],
-  ['#8a6a3a', '#7c7a4a'], ['#b1552f', '#9c6242'], ['#6f7d55', '#8a6a3a'],
-  ['#a86a5c', '#b1552f'], ['#c17a3c', '#8a6a3a'], ['#7c7a4a', '#6f7d55'],
-  ['#b1552f', '#c17a3c'], ['#9c6242', '#a86a5c'], ['#8a6a3a', '#c9713f'],
+  ['#211f1c', '#4a3d2a'], ['#1d1c1a', '#3f3527'], ['#262320', '#554330'],
+  ['#1c1b19', '#463a28'], ['#232019', '#5a4a30'], ['#1f1d1a', '#41372a'],
+  ['#252017', '#5a4830'], ['#1b1a18', '#4d3f2b'], ['#211d17', '#50412c'],
+  ['#1e1c19', '#463a29'], ['#242019', '#584727'], ['#1c1b18', '#4a3d2a'],
 ];
 
 const Projects = () => {

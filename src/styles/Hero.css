@@ -23,7 +23,7 @@
   background:
     radial-gradient(38% 44% at 22% 32%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 70%),
     radial-gradient(34% 40% at 82% 22%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 72%),
-    radial-gradient(46% 50% at 70% 82%, color-mix(in srgb, #d89a4e 14%, transparent), transparent 74%);
+    radial-gradient(46% 50% at 70% 82%, color-mix(in srgb, #c5a880 12%, transparent), transparent 74%);
   filter: blur(10px);
   opacity: 0.9;
   pointer-events: none;
@@ -299,7 +299,7 @@
   font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 600;
-  color: #fff8f1;
+  color: var(--color-on-accent);
   background: var(--grad-signal);
 }
 
@@ -327,9 +327,9 @@
 
 .hero__seal-text {
   font-family: var(--font-primary);
-  font-size: 8.2px;
+  font-size: 7.4px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   fill: var(--color-text-secondary);
 }
@@ -342,7 +342,7 @@
   height: 34px;
   border-radius: 50%;
   background: var(--grad-signal);
-  color: #fff8f1;
+  color: var(--color-on-accent);
   font-size: 1.05rem;
 }
 
