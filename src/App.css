@@ -5,8 +5,11 @@
    steel secondary. High-contrast, precision-
    engineered, tech-forward. Monospace display +
    technical label layer over a clean sans body.
-   Dark is the identity (below); this :root is a
-   clean "blueprint" daylight counterpart.
+   The site is dark-only: `data-theme="dark"` is
+   hardcoded on <html>, and the dark block below
+   is what actually renders. This :root stays as
+   the base layer for the structural tokens
+   (spacing, radii, fonts) the dark block reuses.
    ======================================== */
 :root {
   color-scheme: light;
@@ -44,9 +47,15 @@
   --color-btn-secondary-hover-bg: rgba(108, 143, 0, 0.06);
   --color-selection-bg: rgba(108, 143, 0, 0.2);
 
-  --font-primary: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Consolas', monospace;
-  --font-editorial: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  /* --- Type: Space Grotesk over JetBrains Mono ---
+   * Space Grotesk was drawn from Space Mono for a space-themed identity —
+   * geometric, slightly quirky terminals, wide apertures. It carries the
+   * headline voice and the body copy, so the page speaks in one accent.
+   * JetBrains Mono stays for the technical label layer (ticks, indices,
+   * meta) — the engineering counterpoint the grotesk plays against. */
+  --font-primary: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-editorial: 'Space Grotesk', ui-sans-serif, system-ui, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
 
   /* deep ink — sits on the acid-lime buttons/plates in both themes */
@@ -112,11 +121,6 @@
   --ring-focus: 0 0 0 4px color-mix(in srgb, var(--color-primary) 16%, transparent);
 }
 
-/* explicit light (same as root, for the theme toggle) */
-html[data-theme='light'] {
-  color-scheme: light;
-}
-
 /* ---- Cyber-Industrial dark (the identity) ----
    Deep ink blue-black page, blue-graphite cards a
    clear step above it, bright-silver structure, and
@@ -171,9 +175,13 @@ html[data-theme='dark'] {
     color-mix(in srgb, var(--color-primary) 78%, #475569));
   --grad-ink: linear-gradient(180deg, #e2e8f0, #94a3b8);
 
-  --bloom-1: rgba(204, 255, 0, 0.08);
-  --bloom-2: rgba(71, 85, 105, 0.18);
-  --bloom-3: rgba(226, 232, 240, 0.05);
+  /* nebula — deep-space clouds behind the starfield. Indigo and teal
+     carry the "space" read; the lime whisper keeps it in the palette. */
+  --bloom-1: rgba(56, 78, 190, 0.16);
+  --bloom-2: rgba(24, 132, 148, 0.13);
+  --bloom-3: rgba(204, 255, 0, 0.05);
+  --nebula-band: rgba(96, 116, 210, 0.10);
+  --vignette: rgba(2, 4, 9, 0.62);
   --grain-opacity: 0.05;
   --grain-blend: overlay;
   --spotlight-color: rgba(204, 255, 0, 0.06);
@@ -282,10 +290,52 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 
+/* the galactic band — a soft diagonal river of light behind the stars,
+   the way the Milky Way cuts across a real night sky. Sits deepest. */
+.atmosphere__band {
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 160%;
+  height: 180%;
+  transform: rotate(-24deg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--nebula-band) 40%, transparent) 26%,
+      var(--nebula-band) 50%,
+      color-mix(in srgb, var(--nebula-band) 40%, transparent) 74%,
+      transparent 100%
+    );
+  filter: blur(50px);
+  opacity: 0.9;
+  animation: band-breathe 44s ease-in-out infinite alternate;
+}
+
+@keyframes band-breathe {
+  from { transform: rotate(-24deg) translate3d(-2%, 0, 0) scale(1); opacity: 0.7; }
+  to   { transform: rotate(-19deg) translate3d(3%, -2%, 0) scale(1.08); opacity: 1; }
+}
+
+/* starfield — painted over the band, under the nebula blooms.
+   Sized and painted entirely from JS (see Starfield.jsx). */
+.starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* nebula clouds — drifting colour behind the stars. Blurred hard and
+   screen-blended so they glow through the field instead of veiling it. */
 .atmosphere__bloom {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
+  mix-blend-mode: screen;
   will-change: transform;
 }
 
@@ -347,6 +397,19 @@ a { color: inherit; text-decoration: none; }
   animation: grain-shift 8s steps(6) infinite;
 }
 
+/* vignette — deep space at the edges. Pulls the eye to the centre and
+   stops the star density fighting the content at the margins. */
+.atmosphere__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 78% 68% at 50% 42%,
+    transparent 0%,
+    transparent 46%,
+    var(--vignette) 100%
+  );
+}
+
 @keyframes grain-shift {
   0%   { transform: translate(0, 0); }
   20%  { transform: translate(-6%, 4%); }
@@ -374,6 +437,138 @@ a { color: inherit; text-decoration: none; }
 .spotlight.is-active { opacity: 1; }
 
 @media (hover: none) { .spotlight { display: none; } }
+
+/* ========================================
+   SHIP CURSOR — a starship that banks into
+   turns, engines burning while it travels.
+   Sits with the starfield: the pointer is a
+   craft moving through the field, not a dot.
+   The native cursor is only hidden once JS
+   has mounted the replacement, and text
+   fields keep a real caret.
+   ======================================== */
+html.has-ship-cursor,
+html.has-ship-cursor body,
+html.has-ship-cursor * {
+  cursor: none;
+}
+
+/* never take the caret away from something you type into — the ship stands
+   down over text fields so you don't get two cursors at once */
+html.has-ship-cursor.is-text-target,
+html.has-ship-cursor.is-text-target * {
+  cursor: text;
+}
+
+html.has-ship-cursor.is-text-target .ship-cursor,
+html.has-ship-cursor.is-text-target .ship-trail {
+  opacity: 0;
+}
+
+.ship-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 200ms ease;
+}
+
+.ship-cursor.is-visible { opacity: 1; }
+
+.ship-cursor svg {
+  display: block;
+  overflow: visible;
+  transition: transform 180ms var(--ease-out-expo);
+}
+
+/* silver hull, lime wings — the same two-tone the rest of the site runs on */
+.ship-cursor__hull {
+  fill: var(--color-text-primary);
+  stroke: rgba(11, 15, 25, 0.55);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+  transition: fill var(--transition-base);
+}
+
+.ship-cursor__wing {
+  fill: var(--color-primary);
+  stroke: rgba(11, 15, 25, 0.45);
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+  transition: fill var(--transition-base);
+}
+
+.ship-cursor__canopy {
+  fill: var(--color-bg-primary);
+  stroke: var(--color-primary);
+  stroke-width: 0.7;
+}
+
+.ship-cursor__engine {
+  fill: var(--color-bg-primary);
+  stroke: rgba(11, 15, 25, 0.5);
+  stroke-width: 0.4;
+}
+
+/* the burn only lights while the ship is actually under way */
+.ship-cursor__thrust {
+  fill: var(--color-primary);
+  transform-origin: 50% 74%;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(204, 255, 0, 0.75));
+  transition: opacity 140ms ease;
+}
+
+.ship-cursor.is-burning .ship-cursor__thrust {
+  opacity: 1;
+  animation: ship-burn 110ms steps(2, end) infinite alternate;
+}
+
+@keyframes ship-burn {
+  from { transform: scaleY(0.6) scaleX(0.85); }
+  to   { transform: scaleY(1.25) scaleX(1.05); }
+}
+
+/* over anything clickable the ship flares — this is the affordance that
+   replaces the pointer/hand cursor we just took away */
+.ship-cursor.is-hot svg { transform: scale(1.4); }
+.ship-cursor.is-hot .ship-cursor__hull { fill: var(--color-primary); }
+.ship-cursor.is-hot .ship-cursor__wing { fill: var(--color-text-primary); }
+
+.ship-cursor.is-down svg { transform: scale(0.82); }
+.ship-cursor.is-hot.is-down svg { transform: scale(1.12); }
+
+/* ion trail — dots the ship leaves in its wake */
+.ship-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.ship-trail__dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 6px rgba(204, 255, 0, 0.45);
+  opacity: calc(0.34 - var(--i) * 0.04);
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+
+/* no ship on touch, and none for reduced-motion — the component doesn't
+   mount in either case, but keep the styles inert regardless */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .ship-cursor,
+  .ship-trail { display: none; }
+}
 
 /* ========================================
    LAYOUT

@@ -114,27 +114,6 @@
   flex-shrink: 0;
 }
 
-.header__theme {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
-  flex-shrink: 0;
-  background: none;
-  border: 1px solid transparent;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  color: var(--color-text-secondary);
-  transition: color var(--transition-base), border-color var(--transition-base),
-    background var(--transition-base);
-}
-
-.header__theme:hover {
-  color: var(--color-primary);
-  background: var(--color-nav-hover-bg);
-}
-
 .header__toggle {
   display: none;
   align-items: center;
@@ -206,6 +185,5 @@
     z-index: 999;
   }
 
-  .header__toggle,
-  .header__theme { z-index: 1002; }
+  .header__toggle { z-index: 1002; }
 }

@@ -29,7 +29,8 @@
       "React Hook Form",
       "PrimeReact",
       "Chart.js",
-      "React Flow"
+      "React Flow",
+      "Vite"
     ],
     "backend": [
       "Node.js",
@@ -76,6 +77,16 @@
       "Airtable",
       "Google Cloud Functions"
     ],
+    "security": [
+      "Zero Trust Architecture",
+      "Hyperledger Fabric",
+      "Smart Contracts (Chaincode)",
+      "Blockchain Identity Anchors",
+      "Multi-Factor Auth (TOTP)",
+      "Role-Based Access Control",
+      "bcrypt",
+      "Immutable Audit Logging"
+    ],
     "other": [
       "Web Scraping (Puppeteer)",
       "OAuth2.0 / JWT",
@@ -120,6 +131,31 @@
     }
   ],
   "projects": [
+    {
+      "title": "Zero Trust Identity Verification System",
+      "description": "An enterprise identity platform built on a permissioned Hyperledger Fabric network, where every authentication request is cryptographically validated against on-chain identity anchors — MFA, RBAC and an immutable audit trail throughout, and the whole stack comes up under a single Docker command.",
+      "technologies": [
+        "Hyperledger Fabric",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "React",
+        "Vite",
+        "PostgreSQL",
+        "Docker",
+        "Tailwind CSS"
+      ],
+      "achievements": [
+        "Built a permissioned Hyperledger Fabric network with chaincode smart contracts, anchoring credentials on-chain so tampering is cryptographically detectable rather than merely logged",
+        "Implemented Zero Trust authentication — no user or device trusted by default — with JWT sessions, bcrypt hashing and TOTP multi-factor enrolment for first-time identity provisioning",
+        "Enforced role-based access control across student and administrator roles, with every authentication and security event written to an immutable on-chain audit trail",
+        "Designed the REST API in Node.js, Express and TypeScript against PostgreSQL for application data, with Fabric handling distributed identity verification",
+        "Dockerised the entire environment — PostgreSQL, the Fabric network, chaincode, backend and frontend — so the full stack initialises from one startup command",
+        "Shipped database migrations, automated seeding, health checks and deployment scripts for reproducible environments"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
     {
       "title": "Mail Flow Agent — AI Document Pipeline",
       "description": "An end-to-end pipeline that reads unread Microsoft 365 mail, pulls structured property data out of the attachments with Azure OpenAI, and matches it against SQL Server — with a FastAPI admin panel to run and tune the whole thing.",

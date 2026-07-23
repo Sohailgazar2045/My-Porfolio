@@ -9,13 +9,15 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Atmosphere from './components/Atmosphere';
+import Cursor from './components/Cursor';
 import Marquee from './components/Marquee';
 import './App.css';
 
 // A curated ticker of the stack — the signature tools, not the full list.
 const MARQUEE_ITEMS = [
   'TypeScript', 'React', 'Next.js', 'Node.js', 'NestJS', 'FastAPI',
-  'PostgreSQL', 'GraphQL', 'Azure OpenAI', 'Docker', 'AWS', 'Stripe',
+  'PostgreSQL', 'GraphQL', 'Azure OpenAI', 'Hyperledger Fabric',
+  'Zero Trust', 'Docker', 'AWS', 'Stripe',
 ];
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <Atmosphere />
+      <Cursor />
       <div className="app-content">
         <div className="scroll-progress">
           <div

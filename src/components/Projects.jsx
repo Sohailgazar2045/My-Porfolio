@@ -18,6 +18,7 @@ const PREVIEW_COUNT = 6;
 // A short domain label per project — meaningful categorisation
 // instead of decorative colour. Keyed by title.
 const PROJECT_TYPES = {
+  'Zero Trust Identity Verification System': 'Security · Blockchain',
   'Mail Flow Agent — AI Document Pipeline': 'AI · Automation',
   'Dual-Market Arbitrage Bot (Kalshi + Polymarket)': 'Trading · Realtime',
   'SMS-Auto — Community Weft': 'Payments · Automation',

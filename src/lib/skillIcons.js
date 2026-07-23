@@ -9,11 +9,13 @@ import {
   SiRedis, SiPrisma, SiTypeorm, SiSequelize, SiMongoose, SiDocker, SiNginx,
   SiPm2, SiVercel, SiRailway, SiGithubactions, SiGithub, SiStripe, SiTwilio,
   SiOpenai, SiFirebase, SiCloudinary, SiAirtable, SiGooglecloud, SiPuppeteer,
-  SiJsonwebtokens,
+  SiJsonwebtokens, SiVite,
 } from 'react-icons/si';
 import { FaAws, FaFilePdf } from 'react-icons/fa';
 import {
   TbSql, TbDatabase, TbPlugConnected, TbApi, TbTrendingUp, TbFileText,
+  TbShieldLock, TbLink, TbFileCode, TbAnchor, TbDeviceMobileMessage,
+  TbLockAccess, TbHash, TbHistory,
 } from 'react-icons/tb';
 
 const SKILL_ICONS = {
@@ -34,6 +36,7 @@ const SKILL_ICONS = {
   PrimeReact: SiReact,
   'Chart.js': SiChartdotjs,
   'React Flow': SiReact,
+  Vite: SiVite,
   // Backend
   'Node.js': SiNodedotjs,
   'Express.js': SiExpress,
@@ -75,6 +78,16 @@ const SKILL_ICONS = {
   'Kalshi & Polymarket APIs': TbTrendingUp,
   Airtable: SiAirtable,
   'Google Cloud Functions': SiGooglecloud,
+  // Security & Blockchain — no official Hyperledger mark in Simple Icons,
+  // so the chain/shield glyphs stand in rather than borrowing a wrong logo.
+  'Zero Trust Architecture': TbShieldLock,
+  'Hyperledger Fabric': TbLink,
+  'Smart Contracts (Chaincode)': TbFileCode,
+  'Blockchain Identity Anchors': TbAnchor,
+  'Multi-Factor Auth (TOTP)': TbDeviceMobileMessage,
+  'Role-Based Access Control': TbLockAccess,
+  bcrypt: TbHash,
+  'Immutable Audit Logging': TbHistory,
   // Other
   'Web Scraping (Puppeteer)': SiPuppeteer,
   'OAuth2.0 / JWT': SiJsonwebtokens,

@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react';
+import Starfield from './Starfield';
 
 /**
  * Atmosphere — the fixed light stage behind the whole page.
- * Two drifting warm blooms + film grain give depth and a "room"
- * feel, and a soft spotlight tracks the pointer. All pointer work
- * is rAF-throttled and writes only CSS custom properties, so it
- * stays on the compositor and never triggers React re-renders.
+ * A drifting starfield sits deepest, then the blooms and film
+ * grain give depth and a "room" feel, and a soft spotlight tracks
+ * the pointer. All pointer work is rAF-throttled and writes only
+ * CSS custom properties, so it stays on the compositor and never
+ * triggers React re-renders.
  */
 const Atmosphere = () => {
   const spotRef = useRef(null);
@@ -49,10 +51,13 @@ const Atmosphere = () => {
   return (
     <>
       <div className="atmosphere" aria-hidden="true">
+        <div className="atmosphere__band" />
+        <Starfield />
         <div className="atmosphere__bloom atmosphere__bloom--1" />
         <div className="atmosphere__bloom atmosphere__bloom--2" />
         <div className="atmosphere__bloom atmosphere__bloom--3" />
         <div className="atmosphere__grain" />
+        <div className="atmosphere__vignette" />
       </div>
       <div className="spotlight" ref={spotRef} aria-hidden="true" />
     </>

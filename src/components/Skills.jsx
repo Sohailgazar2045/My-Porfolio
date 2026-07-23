@@ -7,6 +7,7 @@ import {
   HiCloud,
   HiCog,
   HiLightningBolt,
+  HiShieldCheck,
 } from 'react-icons/hi';
 import data from '../data.json';
 import { getSkillIcon } from '../lib/skillIcons';
@@ -22,6 +23,7 @@ const CATEGORY_META = {
   databases: { icon: <HiDatabase />, label: 'Databases & ORMs', color: '#475569' },
   cloud: { icon: <HiCloud />, label: 'Cloud & DevOps', color: '#94a3b8' },
   integrations: { icon: <HiLightningBolt />, label: 'Integrations & Automation', color: '#dbff4d' },
+  security: { icon: <HiShieldCheck />, label: 'Security & Blockchain', color: '#ccff00' },
   other: { icon: <HiCog />, label: 'Other', color: '#7c8ba0' },
 };
 
